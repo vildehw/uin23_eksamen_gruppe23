@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'; 
 import Dashboard from './components/Dashboard';
 import GameShop from './components/GameShop';
@@ -9,22 +9,24 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
+
+  const [games, setGames] = useState([])
+
   const getGames = async() => {
-    const response = await fetch (`https://api.rawg.io/api/platforms?key=880241c0a7e24864aef2b9d1687af70d`)
+    const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d`)
     const data = await response.json()
-    console.log(data)
+    setGames(data.results)
   }
 
   useEffect(() =>{
     getGames()
+    //console.log(games)
   },[])
-
-
 
 
   return (
     <Routes>
-      <Route path='/' element={<Dashboard />}/>
+      <Route path='/' element={<Dashboard games={games}/>}/>
       <Route path='/gameshop' element={<GameShop />}/>
       <Route path='/mygames' element={<MyGames />}/>
       <Route path='/favourites' element={<MyFavourites />}/>
