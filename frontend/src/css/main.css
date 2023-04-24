@@ -1,0 +1,19 @@
+body {
+  background-color: pink;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gamecard {
+  background-color: rgb(225, 152, 164);
+}
+.gamecard img {
+  max-width: 300px;
+  height: auto;
+}
+
+/*# sourceMappingURL=main.css.map */
