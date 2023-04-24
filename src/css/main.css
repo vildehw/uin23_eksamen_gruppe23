@@ -1,5 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Mulish:wght@400;700&display=swap");
+.headerfont {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+}
+
+.textfont, body {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+}
+
+.textfont-strong, .textfont-bold {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+}
+
 body {
-  background-color: pink;
+  font-size: 18px;
+}
+
+div, article, header, section, aside, span, footer, header {
+  box-sizing: border-box;
+}
+
+.transition, a {
+  transition: ease-in-out 0.4s;
 }
 
 /*# sourceMappingURL=main.css.map */
