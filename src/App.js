@@ -1,12 +1,19 @@
-import logo from './logo.svg';
 import './App.css'; 
+import Dashboard from './components/Dashboard';
+import GameShop from './components/GameShop';
+import MyFavourites from './components/MyFavourites';
+import MyGames from './components/MyGames';
 import './css/main.css'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <body>
-      <h1>hei</h1>
-    </body>
+    <Routes>
+      <Route path='/' element={<Dashboard />}/>
+      <Route path='/gameshop' element={<GameShop />}/>
+      <Route path='/mygames' element={<MyGames />}/>
+      <Route path='/favourites' element={<MyFavourites />}/>
+    </Routes>
   );
 }
 
