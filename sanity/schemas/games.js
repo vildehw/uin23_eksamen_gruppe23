@@ -23,9 +23,9 @@ export default {
             title: 'API-id',
         }, 
         {
-            name: 'hours_played',
+            name: 'playtime',
             type: 'number',
-            title: 'Antall timer spilt',
+            title: 'Spilltid',
         }, 
         {
             name: 'genre', 
