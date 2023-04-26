@@ -6,6 +6,8 @@ import MyFavourites from './components/MyFavourites';
 import MyGames from './components/MyGames';
 import './css/main.css'
 import { Route, Routes } from 'react-router-dom';
+import { fetchAllGames } from './sanity/gameServices';
+import GamePage from './components/GamePage';
 
 function App() {
 
@@ -23,12 +25,30 @@ function App() {
   },[])
 
 
+
+
+  const[sanitygames, setSanitygames] = useState(null) 
+
+  const getSanityGames = async () => {
+    const data = await fetchAllGames() 
+    setSanitygames(data)
+  } 
+
+  useEffect(() => {
+    getSanityGames()
+  }, [])
+
+  console.log(sanitygames)
+
+
+
   return (
     <Routes>
       <Route path='/' element={<Dashboard games={games}/>}/>
       <Route path='/gameshop' element={<GameShop />}/>
-      <Route path='/mygames' element={<MyGames />}/>
-      <Route path='/favourites' element={<MyFavourites />}/>
+      <Route path='/mygames' element={<MyGames sanitygames={sanitygames}/>}/>
+      <Route path='/favourites' element={<MyFavourites />}/> 
+      <Route path=':slug' element={<GamePage/>}/>
     </Routes>
   );
 }
