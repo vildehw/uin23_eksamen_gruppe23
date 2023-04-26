@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Mulish:wght@400;700&display=swap");
+body {
+  background-color: pink;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gamecard {
+  background-color: rgb(225, 152, 164);
+}
+.gamecard img {
+  max-width: 300px;
+  height: auto;
+}
+
 .headerfont {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
@@ -26,4 +44,4 @@ div, article, header, section, aside, span, footer, header {
   transition: ease-in-out 0.4s;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3MvbWFpbi5zY3NzIiwibWFpbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUJRLGtIQUFBO0FBcEJSO0VBQ0ksc0JBQUE7QUNDSjs7QURFQTtFQUNJLGFBQUE7RUFDQSxlQUFBO0VBQ0EsU0FBQTtBQ0NKOztBREVBO0VBQ0ksb0NBQUE7QUNDSjtBRENJO0VBQ0ksZ0JBQUE7RUFDQSxZQUFBO0FDQ1I7O0FEU0E7RUFDSSxnQ0FKWTtFQUtaLGdCQUFBO0FDTko7O0FEU0E7RUFDSSxpQ0FSWTtFQVNaLGdCQUFBO0FDTko7O0FEUUE7RUFDSSxpQ0FaWTtFQWFaLGdCQUFBO0FDTEo7O0FET0E7RUFHSSxlQUFBO0FDTko7O0FEVUE7RUFDSSxzQkFBQTtBQ1BKOztBRFdBO0VBQ0ksNEJBQUE7QUNSSiIsImZpbGUiOiJtYWluLmNzcyJ9 */
