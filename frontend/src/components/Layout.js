@@ -1,11 +1,13 @@
 import { Outlet } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Layout (){
     return (
         <>
-        <header>
-            <h1>Gamehub</h1>
+        <header> 
+            <Link to="/">
+                <h1>Gamehub</h1> 
+            </Link>
         </header>  
         <nav>
             <NavLink to="/gameshop">Gameshop</NavLink> 
