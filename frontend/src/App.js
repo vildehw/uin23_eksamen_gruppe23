@@ -27,18 +27,7 @@ function App() {
 
 
 
-  const[sanitygames, setSanitygames] = useState(null) 
-
-  const getSanityGames = async () => {
-    const data = await fetchAllGames() 
-    setSanitygames(data)
-  } 
-
-  useEffect(() => {
-    getSanityGames()
-  }, [])
-
-  console.log(sanitygames)
+ 
 
 
 
@@ -46,9 +35,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Dashboard games={games}/>}/>
       <Route path='/gameshop' element={<GameShop />}/>
-      <Route path='/mygames' element={<MyGames sanitygames={sanitygames}/>}/>
+      <Route path='/mygames' element={<MyGames/>}/>
       <Route path='/favourites' element={<MyFavourites />}/> 
-      <Route path=':slug' element={<GamePage/>}/>
+      <Route exact path='mygames/:slug' element={<GamePage/>}/>
     </Routes>
   );
 }

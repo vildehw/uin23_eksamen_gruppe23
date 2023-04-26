@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
 import { Link, matchPath } from "react-router-dom";
+import { fetchAllGames } from "../sanity/gameServices";
 
 
-export default function MyGames({sanitygames}) { 
+export default function MyGames() { 
 
-  
+  const[sanitygames, setSanitygames] = useState(null) 
+
+  const getSanityGames = async () => {
+    const data = await fetchAllGames() 
+    setSanitygames(data)
+  } 
+
+  useEffect(() => {
+    getSanityGames()
+  }, [])
+
+  console.log(sanitygames)
   return(
     <>
     
