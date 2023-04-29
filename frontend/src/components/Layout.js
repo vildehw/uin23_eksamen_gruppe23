@@ -6,14 +6,14 @@ export default function Layout (){
         <>
         <header> 
             <Link to="/">
-                <h1>Gamehub</h1> 
+                <img src="../logos/1x/macslogo_white.png" alt="MAC's gamehub"/>
             </Link>
+            <nav>
+                <NavLink className="nav-link" to="/gameshop">Shop</NavLink> 
+                <NavLink className="nav-link" to="/mygames">My games</NavLink>
+                <NavLink className="nav-link" to="/favourites">Favorites</NavLink> 
+            </nav>
         </header>  
-        <nav>
-            <NavLink to="/gameshop">Gameshop</NavLink> 
-            <NavLink to="/favourites">My favorites</NavLink> 
-            <NavLink to="/mygames">My games</NavLink>
-        </nav>
         <main>
             <Outlet/>
         </main>
