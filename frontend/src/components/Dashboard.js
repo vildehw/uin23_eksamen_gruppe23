@@ -1,3 +1,5 @@
+import GameCard from "./GameCard";
+
 export default function Dashboard() {
   return(
     <>
@@ -6,33 +8,9 @@ export default function Dashboard() {
         <button>Visit shop</button>
       </div>
       <section id="gameshop-window">
-        <article className="gamecard">
-          <div className="poster">
-          </div>
-          <div className="game-info">
-            <h3>Title</h3>
-            <h4>Genre</h4>
-            <button>BUY</button>
-          </div>
-        </article>
-        <article className="gamecard">
-          <div className="poster">
-          </div>
-          <div className="game-info">
-            <h3>Title</h3>
-            <h4>Genre</h4>
-            <button>BUY</button>
-          </div>
-        </article>
-        <article className="gamecard">
-          <div className="poster">
-          </div>
-          <div className="game-info">
-            <h3>Title</h3>
-            <h4>Genre</h4>
-            <button>BUY</button>
-          </div>
-        </article>
+        <GameCard />
+        <GameCard />
+        <GameCard />
       </section>
       <section id="my-games-section">
         <section>
