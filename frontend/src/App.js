@@ -6,6 +6,7 @@ import MyFavourites from './components/MyFavourites';
 import MyGames from './components/MyGames';
 import './css/main.css'
 import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d`)
     const data = await response.json()
     setGames(data.results)
+    console.log(games)
   }
 
   useEffect(() =>{
@@ -24,11 +26,13 @@ function App() {
 
 
   return (
-    <Routes>
-      <Route path='/' element={<Dashboard games={games}/>}/>
-      <Route path='/gameshop' element={<GameShop />}/>
-      <Route path='/mygames' element={<MyGames />}/>
-      <Route path='/favourites' element={<MyFavourites />}/>
+    <Routes> 
+      <Route element={<Layout/>}>
+        <Route path='/' element={<Dashboard games={games}/>}/>
+        <Route path='/gameshop' element={<GameShop />}/>
+        <Route path='/mygames' element={<MyGames />}/>
+        <Route path='/favourites' element={<MyFavourites />}/> 
+      </Route>
     </Routes>
   );
 }

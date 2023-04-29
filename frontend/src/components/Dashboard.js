@@ -1,6 +1,6 @@
 import GameCard from "./GameCard";
 
-export default function Dashboard({games}) {
+export default function Dashboard() {
   return(
     <>
       <div className="section-headline">
@@ -38,3 +38,5 @@ export default function Dashboard({games}) {
     </>
   )
 }
+
+//Bytte ut individuelle article tags med tre spill, satte det opp sånn her foreløpig for å fikse designet

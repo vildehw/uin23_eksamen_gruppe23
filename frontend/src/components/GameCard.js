@@ -1,14 +1,13 @@
-export default function GameCard({games}) {
-
-  console.log(games)
+export default function GameCard() {
   return(
-    <section>
-        {games?.map((game, index) => (
-        <article key={index} className="gamecard">
-        <img src={game.background_image} alt={game.name}/>
-        <h3>{game.name}</h3>
-        </article>
-      ))}
-    </section>
+    <article className="gamecard">
+    <div className="poster">
+    </div>
+    <div className="game-info">
+      <h3>Title</h3>
+      <h4>Genre</h4>
+      <button>BUY</button>
+    </div>
+  </article>
   )
 }
