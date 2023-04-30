@@ -6,7 +6,7 @@ export default function Layout (){
         <>
         <header> 
             <Link to="/">
-                <img src="../logos/1x/macslogo_white.png" alt="MAC's gamehub"/>
+                <img src="logos/1x/macslogo_white.png" alt="MAC's gamehub"/>
             </Link>
             <nav>
                 <NavLink className="nav-link" to="/gameshop">Shop</NavLink> 

@@ -1,6 +1,6 @@
 import GameCard from "./GameCard";
 
-export default function Dashboard() {
+export default function Dashboard({games}) {
   return(
     <>
       <div className="section-headline">
@@ -8,9 +8,7 @@ export default function Dashboard() {
         <button>Visit shop</button>
       </div>
       <section id="gameshop-window">
-        <GameCard />
-        <GameCard />
-        <GameCard />
+        <GameCard games={games} gamesAmount={3}/>
       </section>
       <section id="my-games-section">
         <section>

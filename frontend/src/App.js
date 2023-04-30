@@ -16,8 +16,7 @@ function App() {
   const getGames = async() => {
     const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d`)
     const data = await response.json()
-    setGames(data.results)
-    console.log(games)
+    setGames(data?.results)
   }
 
   useEffect(() =>{
@@ -29,7 +28,7 @@ function App() {
     <Routes> 
       <Route element={<Layout/>}>
         <Route path='/' element={<Dashboard games={games}/>}/>
-        <Route path='/gameshop' element={<GameShop />}/>
+        <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames />}/>
         <Route path='/favourites' element={<MyFavourites />}/> 
       </Route>

@@ -65,7 +65,7 @@ h1, h2, h3, h4 {
 
 
 body {
-    background-color: pink;
+    background-color: $light-grey;
 }
 
 header {
@@ -111,7 +111,7 @@ main {
 }
 
 #gameshop-window {
-    background-color: $light-grey;
+    background-color: $white;
     display: flex;
     justify-content: space-around;
     width: 100%;

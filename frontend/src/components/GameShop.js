@@ -1,16 +1,12 @@
-export default function GameShop() {
+import GameCard from "./GameCard";
+
+export default function GameShop({games}) {
   return(
     <>
       <h1>GAMESHOP</h1>
-      <article className="gamecard">
-      <div className="poster">
-      </div>
-      <div className="game-info">
-        <h3>Title</h3>
-        <h4>Genre</h4>
-        <button>BUY</button>
-      </div>
-      </article>
+      <section id="gameshop-window">
+        <GameCard games={games} gamesAmount={10}/>
+      </section>
     </>
   )
 }
