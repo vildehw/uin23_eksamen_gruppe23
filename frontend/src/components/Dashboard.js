@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
 
 export default function Dashboard({games}) {
@@ -5,7 +6,7 @@ export default function Dashboard({games}) {
     <>
       <div className="section-headline">
         <h2>GameShop</h2>
-        <button>Visit shop</button>
+        <Link to="/gameshop"><button>Visit shop</button></Link>
       </div>
       <section id="gameshop-window">
         <GameCard games={games} gamesAmount={3}/>
