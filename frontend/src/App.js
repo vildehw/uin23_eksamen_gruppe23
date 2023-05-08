@@ -6,6 +6,7 @@ import MyFavourites from './components/MyFavourites';
 import MyGames from './components/MyGames';
 import './css/main.css'
 import { Route, Routes } from 'react-router-dom';
+import GamePage from './components/GamePage';
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
       <Route path='/' element={<Dashboard games={games}/>}/>
       <Route path='/gameshop' element={<GameShop />}/>
       <Route path='/mygames' element={<MyGames />}/>
-      <Route path='/favourites' element={<MyFavourites />}/>
+      <Route path='/favourites' element={<MyFavourites />}/> 
+      <Route path='/:slug' element={<GamePage games={games}/>}/>
     </Routes>
   );
 }
