@@ -1,15 +1,36 @@
-export default function MyGames() {
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchAllGames } from "../sanity/gameServices";
+
+
+export default function MyGames() { 
+
+  const[sanitygames, setSanitygames] = useState(null) 
+
+  const getSanityGames = async () => {
+    const data = await fetchAllGames() 
+    setSanitygames(data)
+  } 
+
+  useEffect(() => {
+    getSanityGames()
+  }, [])
+
+  console.log(sanitygames)
   return(
     <>
-      <h1>MY GAMES-LIBRARY</h1>
-      <article className="gamecard">
-      <div className="poster">
-      </div>
-      <div className="game-info">
-        <h3>Title</h3>
-        <h4>Genre</h4>
-      </div>
-      </article>
+    
+    <section> 
+    <h1>My games</h1> 
+        {sanitygames?.map((game, index) => (
+        <article key={index} className="gamecard">
+        <h3>{game.game_title}</h3>  
+        <p>Sjanger:</p> 
+        <p>Spilltid: {game.playtime}</p>
+        <Link to={game.slug.current}>Les mer</Link>
+        </article>
+      ))}
+    </section>
     </>
   )
 }

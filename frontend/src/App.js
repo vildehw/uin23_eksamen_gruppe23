@@ -7,6 +7,7 @@ import MyGames from './components/MyGames';
 import './css/main.css'
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import GamePage from './components/GamePage';
 
 function App() {
 
@@ -44,13 +45,20 @@ function App() {
   },[])
 
 
+
+
+ 
+
+
+
   return (
     <Routes> 
       <Route element={<Layout/>}>
         <Route path='/' element={<Dashboard games={games}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
-        <Route path='/mygames' element={<MyGames />}/>
-        <Route path='/favourites' element={<MyFavourites />}/> 
+        <Route path='/mygames' element={<MyGames/>}/>
+        <Route path='/favourites' element={<MyFavourites />}/>  
+        <Route path='/:slug' element={<GamePage/>}/>
       </Route>
     </Routes>
   );
