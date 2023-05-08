@@ -5,8 +5,8 @@ export default function MyGames({sanitygames}) {
 
   return(
     <>
+    <h1>MY GAMES</h1> 
     <section> 
-    <h1>My games</h1> 
     <MyGameCard sanitygames={sanitygames} gamesAmount={10}/>
     </section>
     </>
