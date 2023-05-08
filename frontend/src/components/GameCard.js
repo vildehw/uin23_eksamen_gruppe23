@@ -5,7 +5,7 @@ export default function GameCard({games, gamesAmount}) {
     <img src={game.background_image} alt={game.name + " poster"} className="poster" />
     <div className="game-info">
       <h3>{game.name}</h3>
-      <h4>Genre</h4>
+      {game.genres.map((g) => (<h4>{g.name}</h4>))}
       <button>BUY</button>
     </div>
     </article>

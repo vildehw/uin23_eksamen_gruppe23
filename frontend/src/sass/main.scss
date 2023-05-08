@@ -88,6 +88,18 @@ header {
     }
 }
 
+footer {
+    background-color: $black;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
 section {
     display: flex;
     flex-wrap: wrap;
