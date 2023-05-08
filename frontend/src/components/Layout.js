@@ -17,6 +17,9 @@ export default function Layout (){
         <main>
             <Outlet/>
         </main>
+        <footer>
+            <a href="...">Attribution-link</a>
+        </footer>
         </>
     )
 }
