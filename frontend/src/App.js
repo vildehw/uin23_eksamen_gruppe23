@@ -37,7 +37,7 @@ function App() {
       <Route path='/gameshop' element={<GameShop />}/>
       <Route path='/mygames' element={<MyGames/>}/>
       <Route path='/favourites' element={<MyFavourites />}/> 
-      <Route exact path='mygames/:slug' element={<GamePage/>}/>
+      <Route path='/:slug' element={<GamePage/>}/>
     </Routes>
   );
 }
