@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, matchPath } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchAllGames } from "../sanity/gameServices";
 
 

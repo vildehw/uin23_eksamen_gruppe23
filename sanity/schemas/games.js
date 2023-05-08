@@ -30,8 +30,16 @@ export default {
         {
             name: 'genre', 
             title: 'Sjanger',
-            type: 'reference',
-            to: [{type: 'genres'}]
+            type: 'array',
+            of: [{type: 'reference',
+             to: [
+                {type: 'genres'}
+            ]}]
+        },
+        {
+            name: 'favourite',
+            title: 'Favoritt',
+            type: 'boolean'
         }
     ]
 }

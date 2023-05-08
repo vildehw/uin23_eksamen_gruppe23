@@ -6,7 +6,6 @@ import MyFavourites from './components/MyFavourites';
 import MyGames from './components/MyGames';
 import './css/main.css'
 import { Route, Routes } from 'react-router-dom';
-import { fetchAllGames } from './sanity/gameServices';
 import GamePage from './components/GamePage';
 
 function App() {
