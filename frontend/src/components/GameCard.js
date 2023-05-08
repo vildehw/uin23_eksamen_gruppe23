@@ -1,20 +1,19 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-export default function GameCard({games}) {
-
-  console.log(games) 
-
+export default function GameCard({games, gamesAmount}) {
 
   return(
-    <section>
-        {games?.map((game, index) => (
-        <article key={index} id={game.id} className="gamecard">
-        <img src={game.background_image} alt={game.name}/>
-        <h3>{game.name}</h3> 
-        <Link  to={game.slug}>Les mer</Link>
-        </article>
-      ))}
-    </section>
+  games?.filter((game, index) => (index < gamesAmount)).map((game, index) => (
+    <Link  to={game.slug}>
+    <article className="gamecard" key={index}>
+    <img src={game.background_image} alt={game.name + " poster"} className="poster" />
+    <div className="game-info">
+      <h3>{game.name}</h3>
+      {game.genres.map((g) => (<h4>{g.name}</h4>))}
+      <button>BUY</button>
+    </div>
+    </article>
+    </Link>
+   ))
   )
 }
