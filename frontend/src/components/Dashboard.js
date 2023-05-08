@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
+import MyGameCard from "./MyGameCard";
 
-export default function Dashboard({games}) {
+export default function Dashboard({games, sanitygames}) {
   return(
     <>
       <div className="section-headline">
@@ -14,18 +15,9 @@ export default function Dashboard({games}) {
       <section id="my-games-section">
         <section>
           <div className="section-headline">
-          <h2>MY GAMES-LIBRARY - 21 games</h2>
+          <h2>MY GAMES-LIBRARY - {sanitygames.length}</h2>
           </div>
-          <article className="gamecard">
-            <div className="poster">
-            </div>
-            <div className="game-info">
-              <h3>Title</h3>
-              <h4>Genre</h4>
-              <p>Hours played: 96</p>
-            </div>
-            <button>Go to library</button>
-          </article>
+          <MyGameCard sanitygames={sanitygames} gamesAmount={4}/>
         </section>
         <section id="favourites-section">
           <div className="section-headline">
@@ -38,4 +30,16 @@ export default function Dashboard({games}) {
   )
 }
 
-//Bytte ut individuelle article tags med tre spill, satte det opp sånn her foreløpig for å fikse designet
+/*
+<article className="gamecard">
+            <div className="poster">
+            </div>
+            <div className="game-info">
+              <h3>Title</h3>
+              <h4>Genre</h4>
+              <p>Hours played: 96</p>
+            </div>
+            <button>Go to library</button>
+          </article>
+
+          */

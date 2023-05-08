@@ -22,8 +22,8 @@ export default function GamePage() {
     return( 
         <>
         <h2>{sanityGame?.game_title} </h2> 
-        <p>Spilltid: {sanityGame?.playtime}</p>    
-        <p>Sjanger: {sanityGame?.genre}</p>
+        <p>Played: {sanityGame?.playtime} hours</p>    
+        <p>Genre: {sanityGame?.genre}</p>
         
         </>
     )
