@@ -10,19 +10,38 @@ import Layout from './components/Layout';
 
 function App() {
 
+  function getDate(separator='-') {
+    const date = new Date()
+    let year = date.getFullYear()
+    let month = date.getMonth()
+    let day = date.getDate()
+    // Kilder: https://www.w3schools.com/js/js_date_methods.asp & https://stackoverflow.com/questions/43744312/react-js-get-current-date
+
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${day<10?`0${day}`:`${day}`}`
+  }
 
   const [games, setGames] = useState([])
+  const [platformerGames, setPlatformerGames] = useState([])
 
   const getGames = async() => {
-    const response = await fetch (`https://api.rawg.io/api/games?&ordering=released&key=880241c0a7e24864aef2b9d1687af70d`)
+    const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}`)
     const data = await response.json()
     setGames(data?.results)
   }
 
+  const getPlatformerGames = async() =>{
+    const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}&genres=platformer`)
+    const data = await response.json()
+    setPlatformerGames(data?.results)
+  }
+
+  console.log(games)
+  console.log(platformerGames)
+
   useEffect(() =>{
     getGames()
+    getPlatformerGames()
   },[])
-
 
   return (
     <Routes> 

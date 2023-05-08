@@ -18,7 +18,7 @@ export default function Layout (){
             <Outlet/>
         </main>
         <footer>
-            <a href="...">Attribution-link</a>
+            <a href="https://rawg.io/apidocs" rel="noreferrer" target="_blank" >Games fetched with RAWG Video Games Database API (v1.0)</a>
         </footer>
         </>
     )
