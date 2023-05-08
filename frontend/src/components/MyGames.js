@@ -25,7 +25,7 @@ export default function MyGames() {
         {sanitygames?.map((game, index) => (
         <article key={index} className="gamecard">
         <h3>{game.game_title}</h3>  
-        <p>Sjanger:{game.genre}</p> 
+        <p>Sjanger:</p> 
         <p>Spilltid: {game.playtime}</p>
         <Link to={game.slug.current}>Les mer</Link>
         </article>
