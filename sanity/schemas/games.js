@@ -35,11 +35,6 @@ export default {
              to: [
                 {type: 'genres'}
             ]}]
-        },
-        {
-            name: 'favourite',
-            title: 'Favoritt',
-            type: 'boolean'
         }
     ]
 }
