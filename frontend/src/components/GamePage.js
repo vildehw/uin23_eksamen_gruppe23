@@ -1,25 +1,28 @@
+<<<<<<< HEAD
 import { add } from "lodash"
 import { useEffect, useState } from "react"
+=======
+>>>>>>> 044ac03ed514b0b58a62604927af4b6bdd8e53c5
 import { useParams } from "react-router"
+import { fetchGame } from "../sanity/gameServices"
+import { useEffect, useState } from "react"
 
-export default function GamePage({games}) { 
+export default function GamePage() {
+ 
+  const {slug} = useParams()
 
-  const {slug} = useParams()  
-  
-  const selectedGame = games.find((g) => g.slug === slug) 
-  
-  const id = selectedGame?.id   
+  const [sanityGame, setSanityGame] = useState(null) 
 
-  console.log(id)
-  const [gameInfo, setGameInfo] = useState(null) 
+  const getsanityGame = async (slug) => {
+    const data = await fetchGame(slug) 
+    setSanityGame(data[0])
+  }  
 
-  const getGameInfo = async() => {
-    const response = await fetch (`https://api.rawg.io/api/games/${id}?key=880241c0a7e24864aef2b9d1687af70d`)
-    const data = await response.json()
-    setGameInfo(data) 
-    console.log(gameInfo)
-  }
+  useEffect(() => {
+    getsanityGame(slug)
+  }, [slug]) 
 
+<<<<<<< HEAD
   useEffect(() =>{
     getGameInfo()
   },[selectedGame])  
@@ -61,3 +64,16 @@ console.log(favourites)
   )
 } 
 
+=======
+  console.log(sanityGame)
+
+    return( 
+        <>
+        <h2>{sanityGame?.game_title} </h2> 
+        <p>Played: {sanityGame?.playtime} hours</p>    
+        <p>Genre: {sanityGame?.genre}</p>
+        
+        </>
+    )
+}
+>>>>>>> 044ac03ed514b0b58a62604927af4b6bdd8e53c5
