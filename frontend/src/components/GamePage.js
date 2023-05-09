@@ -1,3 +1,4 @@
+import { add } from "lodash"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
@@ -21,15 +22,33 @@ export default function GamePage({games}) {
 
   useEffect(() =>{
     getGameInfo()
-  },[selectedGame])
+  },[selectedGame])  
 
+//kode for lage favoritt  
+
+  const savedFav = () => {
+    const saved = localStorage.getItem("favoritt") 
+    const initialValue = JSON.parse(saved) 
+    return initialValue || "";
+  }
+
+  const [favourites, setFavourites] = useState(savedFav) 
+
+  const addFavourite = () => {
+    setFavourites((prev) => [...prev, selectedGame.name]) 
+  }   
+
+  useEffect(()=>{
+    localStorage.setItem("favoritt", JSON.stringify(favourites))
+  },[favourites]) 
+  
+console.log(favourites)
 
   return(
     <> 
     <h1>{selectedGame?.name}</h1>  
     <img src={gameInfo?.background_image} alt={selectedGame?.name}></img> 
     <p>Rating: {gameInfo?.rating}</p>   
-    <p>Genre:</p> <ul>{gameInfo?.genres.map((g,i) => <li>{g.name}</li>)}</ul>
     <p>Plot: {gameInfo?.description_raw}</p> 
     <p>Tags:</p> <ul>{gameInfo?.tags.map((t,i) => <li>{t.name}</li>)}</ul> 
     <p>Developers:</p> <ul>{gameInfo?.developers.map((d,i) => <li>{d.name}</li>)}</ul> 
@@ -37,20 +56,8 @@ export default function GamePage({games}) {
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores.map((s,i) => <li>{s.store.name}</li>)}</ul> 
-    <button>add to favorites</button>
+    <button onClick={addFavourite}>add to favorites</button>
     </>
   )
 } 
 
-/* 
-Bilde
-Rating
-Oppsummering/plot
-Stikkord (tags)
-Utviklere (developers)
-Utgiver (publisher)
-Utgivelsesår (release)
-Plattformer (platforms)
-Kjøpsmuligheter (stores)  
-
-*/
