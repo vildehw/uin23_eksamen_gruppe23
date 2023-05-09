@@ -4,11 +4,10 @@ import { useEffect, useState } from "react"
 
 export default function GamePage({games}) {
  
-  const {slug} = useParams()
+const {slug} = useParams()
 
  
 
-  ///////////////  
 
 const selectedGame = games?.find((game) => game?.slug === slug) 
 const id = selectedGame?.id
@@ -30,7 +29,7 @@ const [gameInfo, setGameInfo] = useState([])
   console.log(games)
   console.log(selectedGame) 
 
-//kode for lage favoritt  
+//kode for å lagre favoritt  (localsotrage)
 
   const savedFav = () => {
     const saved = localStorage.getItem("favoritt") 
