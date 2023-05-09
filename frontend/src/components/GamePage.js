@@ -1,35 +1,39 @@
 import { useParams } from "react-router"
-import { fetchGame } from "../sanity/gameServices"
 import { useEffect, useState } from "react"
 
-export default function GamePage({games}) {
+export default function GamePage({games, sanitygames}) {
  
 const {slug} = useParams()
 
- 
-
 
 const selectedGame = games?.find((game) => game?.slug === slug) 
-const id = selectedGame?.id
+const id = selectedGame?.id 
+
+const selectedSanityGame = sanitygames?.find((game) => game?.slug.current === slug) 
+const sanityId = selectedSanityGame?.api_id  
 
 const [gameInfo, setGameInfo] = useState([]) 
 
 
-  const getGameInfo = async() => {
-    const response = await fetch (`https://api.rawg.io/api/games/${id}?key=880241c0a7e24864aef2b9d1687af70d`)
+  const getGameInfo = async(i) => {
+    const response = await fetch (`https://api.rawg.io/api/games/${i}?key=880241c0a7e24864aef2b9d1687af70d`)
     const data = await response.json()
     setGameInfo(data) 
     console.log(gameInfo)
   }
 
   useEffect(() =>{
-    getGameInfo()
-  },[selectedGame])  
+    getGameInfo(id)
+  },[selectedGame])   
+
+  useEffect(() =>{
+    getGameInfo(sanityId)
+  },[selectedSanityGame])  
 
   console.log(games)
   console.log(selectedGame) 
 
-//kode for å lagre favoritt  (localsotrage)
+//kode for å lagre favoritt  (localstorage)
 
   const savedFav = () => {
     const saved = localStorage.getItem("favoritt") 
@@ -40,20 +44,20 @@ const [gameInfo, setGameInfo] = useState([])
   const [favourites, setFavourites] = useState(savedFav) 
 
   const addFavourite = () => {
-    setFavourites((prev) => [...prev, selectedGame.name]) 
+    setFavourites((prev) => [...prev, selectedGame.name])
   }   
 
   useEffect(()=>{
     localStorage.setItem("favoritt", JSON.stringify(favourites))
   },[favourites]) 
   
-console.log(favourites)
+console.log(sanitygames)
 
   return(
     <>  
     
     <h1>{selectedGame?.name}</h1>  
-    <img src={gameInfo?.background_image} alt={selectedGame?.name}></img> 
+    <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>  
     <p>Rating: {gameInfo?.rating}</p>   
     <p>Plot: {gameInfo?.description_raw}</p> 
     <p>Tags:</p> <ul>{gameInfo?.tags?.map((t,i) => <li>{t.name}</li>)}</ul> 
@@ -63,8 +67,7 @@ console.log(favourites)
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     <button onClick={addFavourite}>add to favorites</button>
-    
-
+  
     
     </>
   )
