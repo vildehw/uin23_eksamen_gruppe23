@@ -15,7 +15,7 @@ export default function Dashboard({games, sanitygames}) {
       <section id="my-games-section">
         <section>
           <div className="section-headline">
-          <h2>MY GAMES-LIBRARY - {sanitygames.length}</h2>
+          <h2>MY GAMES-LIBRARY - 10</h2>
           </div>
           <MyGameCard sanitygames={sanitygames} gamesAmount={4}/>
         </section>
