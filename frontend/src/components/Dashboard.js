@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
 import MyGameCard from "./MyGameCard";
+import { fetchGameCount } from "../sanity/gameServices";
+import { useEffect, useState } from "react";
 
-export default function Dashboard({games, sanitygames}) {
+export default function Dashboard({games, sanitygames}) { 
+
+
+  //kode for å telle antall spill i myGames (groq-count)
+  const[sanityCount, setSanityCount] = useState(null) 
+
+  const getGameCount = async () => {
+    const data = await fetchGameCount() 
+    setSanityCount(data) 
+  } 
+
+  useEffect(() => {
+    getGameCount()
+  }, []) 
+
+  console.log(sanityCount)
+  
   return(
     <>
       <div className="section-headline">
@@ -15,7 +33,7 @@ export default function Dashboard({games, sanitygames}) {
       <section id="my-games-section">
         <section>
           <div className="section-headline">
-          <h2>MY GAMES-LIBRARY - 10</h2>
+          <h2>MY GAMES-LIBRARY - {sanityCount}</h2>
           </div>
           <MyGameCard sanitygames={sanitygames} gamesAmount={4}/>
         </section>

@@ -45,12 +45,11 @@ function App() {
     getPlatformerGames()
   },[])
 
-
   const[sanitygames, setSanitygames] = useState(null) 
 
   const getSanityGames = async () => {
     const data = await fetchAllGames() 
-    setSanitygames(data)
+    setSanitygames(data) 
   } 
 
   useEffect(() => {

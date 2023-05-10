@@ -10,7 +10,9 @@ const selectedGame = games?.find((game) => game?.slug === slug)
 const id = selectedGame?.id 
 
 const selectedSanityGame = sanitygames?.find((game) => game?.slug.current === slug) 
-const sanityId = selectedSanityGame?.api_id  
+const sanityId = selectedSanityGame?.api_id   
+
+
 
 const [gameInfo, setGameInfo] = useState([]) 
 

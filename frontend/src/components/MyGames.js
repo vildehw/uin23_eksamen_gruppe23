@@ -3,6 +3,7 @@ import MyGameCard from "./MyGameCard";
 
 export default function MyGames({sanitygames}) { 
 
+  console.log(sanitygames)
   return(
     <>
     <section> 
