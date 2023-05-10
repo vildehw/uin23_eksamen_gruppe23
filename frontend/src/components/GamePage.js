@@ -19,7 +19,6 @@ const [gameInfo, setGameInfo] = useState([])
     const response = await fetch (`https://api.rawg.io/api/games/${i}?key=880241c0a7e24864aef2b9d1687af70d`)
     const data = await response.json()
     setGameInfo(data) 
-    console.log(gameInfo)
   }
 
   useEffect(() =>{
@@ -30,8 +29,7 @@ const [gameInfo, setGameInfo] = useState([])
     getGameInfo(sanityId)
   },[selectedSanityGame])  
 
-  console.log(games)
-  console.log(selectedSanityGame) 
+  
 
 //kode for å lagre favoritt  (localstorage)
 
@@ -49,13 +47,13 @@ const [gameInfo, setGameInfo] = useState([])
 
   useEffect(()=>{
     localStorage.setItem("favoritt", JSON.stringify(favourites))
-  },[favourites]) 
-  
+  },[favourites])  
+
 console.log(selectedGame) 
+console.log(selectedSanityGame)
+console.log(gameInfo) 
 
-//{selectedGame ? gameInfo?.genres?.map((g,i) => <li>{g.name}</li>) : selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>)}
 
-//{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>) : gameInfo?.genres?.map((g,i) => <li>{g.name}</li>)}
   return(
     <>  
    
