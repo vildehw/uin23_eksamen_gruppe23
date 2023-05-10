@@ -31,7 +31,7 @@ const [gameInfo, setGameInfo] = useState([])
   },[selectedSanityGame])  
 
   console.log(games)
-  console.log(selectedGame) 
+  console.log(selectedSanityGame) 
 
 //kode for å lagre favoritt  (localstorage)
 
@@ -51,13 +51,20 @@ const [gameInfo, setGameInfo] = useState([])
     localStorage.setItem("favoritt", JSON.stringify(favourites))
   },[favourites]) 
   
-console.log(sanitygames)
+console.log(selectedGame) 
 
+//{selectedGame ? gameInfo?.genres?.map((g,i) => <li>{g.name}</li>) : selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>)}
+
+//{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>) : gameInfo?.genres?.map((g,i) => <li>{g.name}</li>)}
   return(
     <>  
+   
+    <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
+
+    <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
+    {selectedSanityGame ? <p>Played: {selectedSanityGame?.playtime} hours</p> : null } 
+    <p>Genres: </p> <ul>{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>) : selectedGame?.genres?.map((g,i) => <li>{g.name}</li>)}</ul>
     
-    <h1>{selectedGame?.name}</h1>  
-    <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>  
     <p>Rating: {gameInfo?.rating}</p>   
     <p>Plot: {gameInfo?.description_raw}</p> 
     <p>Tags:</p> <ul>{gameInfo?.tags?.map((t,i) => <li>{t.name}</li>)}</ul> 
