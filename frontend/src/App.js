@@ -23,7 +23,7 @@ function App() {
   }
 
   const [games, setGames] = useState([])
-  const [platformerGames, setPlatformerGames] = useState([])
+  //const [platformerGames, setPlatformerGames] = useState([])
 
   const getGames = async() => {
     const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}`)
@@ -31,25 +31,24 @@ function App() {
     setGames(data?.results)
   }
 
+  /*
   const getPlatformerGames = async() =>{
     const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}&genres=platformer`)
     const data = await response.json()
     setPlatformerGames(data?.results)
   }
-
-  console.log(games)
-  console.log(platformerGames)
+  */
 
   useEffect(() =>{
     getGames()
-    getPlatformerGames()
   },[])
+
 
   const[sanitygames, setSanitygames] = useState(null) 
 
   const getSanityGames = async () => {
     const data = await fetchAllGames() 
-    setSanitygames(data) 
+    setSanitygames(data)
   } 
 
   useEffect(() => {
@@ -63,7 +62,7 @@ function App() {
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanitygames}/>}/>
         <Route path='/favourites' element={<MyFavourites />}/>  
-        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames}/>}/>
+        <Route path='/:slug' element={<GamePage/>}/>
       </Route>
     </Routes>
   );

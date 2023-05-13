@@ -18,14 +18,12 @@ export default function Dashboard({games, sanitygames}) {
   useEffect(() => {
     getGameCount()
   }, []) 
-
-  console.log(sanityCount)
   
   return(
     <>
       <div className="section-headline">
         <h2>GameShop</h2>
-        <Link to="/gameshop"><button>Visit shop</button></Link>
+        <Link to="/gameshop"><button className="button">Visit shop</button></Link>
       </div>
       <section id="gameshop-window">
         <GameCard games={games} gamesAmount={3}/>
@@ -41,7 +39,7 @@ export default function Dashboard({games, sanitygames}) {
           <div className="section-headline">
           <h2>MY FAVOURITES</h2>
           </div>
-          <button>Go to favourites</button>
+          <button className="button">Go to favourites</button>
         </section>
       </section>
     </>

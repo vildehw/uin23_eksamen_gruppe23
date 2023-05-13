@@ -73,7 +73,7 @@ console.log(gameInfo)
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
-    <button onClick={addFavourite}>add to favorites</button>
+    <button className="button" onClick={addFavourite}>add to favorites</button>
   
     
     </>
