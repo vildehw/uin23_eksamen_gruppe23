@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import Login from "./Login";
 import logo from "../logos/1x/macslogo_white.png";
 import AC from "../logos/AC.jpeg";
-import TM from "../logos/TM.jpeg";
+import TM from "../logos/TM.png";
 
 export default function Layout (){
 
@@ -32,7 +32,7 @@ export default function Layout (){
                 <NavLink className="nav-link" to="/mygames">My games</NavLink>
                 <NavLink className="nav-link" to="/favourites">Favorites</NavLink> 
             </nav>
-            {user === "" ? <div id="icon"></div> : <img alt="Profilbilde" src={user === "Ann-Charlott" ? {AC} : user === "Tore Marius" ? {TM} : ""}/>}
+            {user === "" ? <div id="icon"></div> : <img id="profile-img" alt="Profilbilde" src={user === "Ann-Charlott" ? AC : user === "Tore Marius" ? TM : ""}/>}
         </header>  
         <main>
             <Outlet/>
