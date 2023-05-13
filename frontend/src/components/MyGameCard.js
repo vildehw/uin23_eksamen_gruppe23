@@ -16,7 +16,7 @@ export default function MyGameCard({sanitygames, gamesAmount}){
       <h3>{game.game_title}</h3>  
       <p>Genre:</p>
       <p>Played: {game.playtime} hours</p>
-      <button onClick={() => (handleClick(`../${game.slug.current}`))}>Read More</button>
+      <button className="button" onClick={() => (handleClick(`../${game.slug.current}`))}>Read More</button>
       </article>
     ))
   )

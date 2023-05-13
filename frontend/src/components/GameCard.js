@@ -10,7 +10,7 @@ export default function GameCard({games, gamesAmount}) {
     <div className="game-info">
       <h3>{game.name}</h3>
       {game.genres.map((g) => (<h4>{g.name}</h4>))}
-      <button>BUY</button>
+      <button className="button">BUY</button>
     </div>
     </article>
     </Link>
