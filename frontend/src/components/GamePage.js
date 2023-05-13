@@ -1,7 +1,7 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 
-export default function GamePage({games, sanitygames}) {
+export default function GamePage({games, sanitygames, favourites, setFavourites}) {
  
   const {slug} = useParams()
 
@@ -37,27 +37,14 @@ const getGameInfo = async(i) => {
   console.log(gameInfo) 
   
 
-//kode for å lagre favoritt  (localstorage)
 
-  const savedFav = () => {
-    const saved = localStorage.getItem("favoritt") 
-    const initialValue = JSON.parse(saved) 
-    return initialValue || "";
-  }
+  const addFavourite = () => { 
+    !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
+  }     
 
-  const [favourites, setFavourites] = useState(savedFav) 
-
-  const addFavourite = () => {
-    setFavourites((prev) => [...prev, selectedGame.name])
-  }   
-
-  useEffect(()=>{
-    localStorage.setItem("favoritt", JSON.stringify(favourites))
-  },[favourites])  
+ console.log(favourites)
 
   
-
-
   return(
     <>  
    

@@ -54,16 +54,21 @@ function App() {
 
   useEffect(() => {
     getSanityGames()
-  }, [])
+  }, []) 
+
+  const [favourites, setFavourites] = useState([]) 
+  //console.log(favourites) 
+
+  
 
   return (
     <Routes> 
       <Route element={<Layout/>}>
-        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames}/>}/>
+        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} favourites={favourites}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanitygames}/>}/>
-        <Route path='/favourites' element={<MyFavourites />}/>  
-        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames}/>}/>
+        <Route path='/favourites' element={<MyFavourites favourites={favourites}/>}/>  
+        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites}/>}/>
       </Route>
     </Routes>
   );
