@@ -30,6 +30,12 @@ fields: [
     to: [
        {type: 'games'}
    ]}]
+  },
+  {
+    name: "wishlist",
+    title: "Ønskeliste",
+    type: 'array',
+    of: [{type: 'string'}]
   }
 ]
 }
