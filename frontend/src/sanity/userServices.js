@@ -10,3 +10,5 @@ export async function updateWishlist(name, gameId, userId) {
 
   return result
 }
+
+// Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
