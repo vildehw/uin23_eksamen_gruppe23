@@ -31,7 +31,7 @@ export default function Layout (){
                 <NavLink className="nav-link" to="/mygames">My games</NavLink>
                 <NavLink className="nav-link" to="/favourites">Favorites</NavLink> 
             </nav>
-            {user === "" ? <i id="icon" class="bi bi-person-circle"></i> : <img id="profile-img" alt="Profilbilde" src={user === "Ann-Charlott" ? AC : user === "Tore Marius" ? TM : ""}/>}
+            {user === "" ? <i id="icon" className="bi bi-person-circle"></i> : <img id="profile-img" alt="Profilbilde" src={user === "Ann-Charlott" ? AC : user === "Tore Marius" ? TM : ""}/>}
         </header>  
         <main>
             <Outlet/>

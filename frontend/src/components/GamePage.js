@@ -13,11 +13,9 @@ export default function GamePage({games, sanitygames, favourites, setFavourites,
   const selectedGame = games?.find((game) => game?.slug === slug) 
   const apiId = selectedGame?.id 
 
-
   let id = '' ;
 
   !selectedSanityGame ? id = apiId : id = sanityId
-  console.log(sanityId)
 
  
 const [gameInfo, setGameInfo] = useState([]) 
@@ -32,17 +30,10 @@ const getGameInfo = async(i) => {
   useEffect(() =>{
     getGameInfo(id) 
   },[selectedGame, selectedSanityGame])   
-
-
-  console.log(selectedGame) 
-  console.log(selectedSanityGame)
- // console.log(gameInfo) 
   
   const addFavourite = () => { 
     !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
   }     
-
- console.log(favourites)   
 
 // Lagrer spill til Sanity
 const addWishlist = async (e) => {
@@ -51,7 +42,7 @@ const addWishlist = async (e) => {
   const userId = "drafts.bc279e4f-880a-43b2-81a8-5ca7fba63241"
   e.preventDefault()
   const result = await updateWishlist(name, gameId, userId)
-  console.log(result)
+  return result
 }
 
 // Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
