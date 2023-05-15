@@ -38,9 +38,9 @@ export default function Layout (){
             {user === "" ? null : <button>SIGN OUT</button>}
             {user === "Ann-Charlott" || user === "Tore Marius" ? null : <Login user={user} setEmail={setEmail} email={email} login={login}/>}
         </main>
-        <footer>
+        {/*<footer>
             <a href="https://rawg.io/apidocs" rel="noreferrer" target="_blank" >Games fetched with RAWG Video Games Database API (v1.0)</a>
-        </footer>
+            </footer>*/}
         </>
     )
 }

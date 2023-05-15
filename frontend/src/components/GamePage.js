@@ -1,8 +1,9 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 import { writeClient } from "../sanity/client"
+import { updateWishlist } from "../sanity/userServices"
 
-export default function GamePage({games, sanitygames, favourites, setFavourites}) {
+export default function GamePage({games, sanitygames, favourites, setFavourites, user}) {
  
   const {slug} = useParams()
 
@@ -37,18 +38,29 @@ const getGameInfo = async(i) => {
   console.log(selectedSanityGame)
   console.log(gameInfo) 
   
-
-
+/*
   const addFavourite = () => { 
     !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
   }     
 
  console.log(favourites)
 
+ */
+
+// Lagrer spill til Sanity
+const addWishlist = async (e) => {
+  const name = selectedGame? selectedGame?.name : selectedSanityGame?.game_title
+  const gameId = selectedGame? selectedGame?.id : sanityId
+  const userId = "drafts.bc279e4f-880a-43b2-81a8-5ca7fba63241"
+  e.preventDefault()
+  const result = await updateWishlist(name, gameId, userId)
+  console.log(result)
+}
+
+// Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
   
   return(
     <>  
-   
     <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
 
     <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
