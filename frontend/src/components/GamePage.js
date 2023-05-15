@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react" 
+import { TagCloud } from 'react-tagcloud'
 
 export default function GamePage({games, sanitygames, favourites, setFavourites}) {
  
@@ -34,16 +35,25 @@ const getGameInfo = async(i) => {
 
   console.log(selectedGame) 
   console.log(selectedSanityGame)
-  console.log(gameInfo) 
+ // console.log(gameInfo) 
   
-
 
   const addFavourite = () => { 
     !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
   }     
 
- console.log(favourites)
+ console.log(favourites)   
 
+
+ 
+ const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
+ console.log(gameTags)
+
+ const colours = {
+  hue: 'purple'
+ } 
+ // kilde: https://madox2.github.io/react-tagcloud/ 
+ //https://github.com/davidmerfield/randomColor
   
   return(
     <>  
@@ -56,15 +66,17 @@ const getGameInfo = async(i) => {
     
     <p>Rating: {gameInfo?.rating}</p>   
     <p>Plot: {gameInfo?.description_raw}</p> 
-    <p>Tags:</p> <ul>{gameInfo?.tags?.map((t,i) => <li>{t.name}</li>)}</ul> 
+    <p>Tags:</p> <ul>{gameInfo?.tags?.map((t,i) => <li>{t.name}</li>)}</ul>
     <p>Developers:</p> <ul>{gameInfo?.developers?.map((d,i) => <li>{d.name}</li>)}</ul> 
     <p>Publisher:</p> <ul>{gameInfo?.publishers?.map((p,i) => <li>{p.name}</li>)}</ul> 
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     <button onClick={addFavourite}>add to favorites</button>
-  
+   <article>
+    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours}/> : null}
+    </article>
+    </> 
     
-    </>
   )
 } 
