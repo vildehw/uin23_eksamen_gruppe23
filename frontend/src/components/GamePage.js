@@ -2,61 +2,50 @@ import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 import { writeClient } from "../sanity/client"
 
-export default function GamePage({games, sanitygames}) {
+export default function GamePage({games, sanitygames, favourites, setFavourites}) {
  
-const {slug} = useParams()
+  const {slug} = useParams()
+
+  const selectedSanityGame = sanitygames?.find((game) => game?.slug.current === slug) 
+  const sanityId = selectedSanityGame?.api_id  
+
+  const selectedGame = games?.find((game) => game?.slug === slug) 
+  const apiId = selectedGame?.id 
 
 
-const selectedGame = games?.find((game) => game?.slug === slug) 
-const id = selectedGame?.id 
+  let id = '' ;
 
-const selectedSanityGame = sanitygames?.find((game) => game?.slug.current === slug) 
-const sanityId = selectedSanityGame?.api_id   
+  !selectedSanityGame ? id = apiId : id = sanityId
+  console.log(sanityId)
 
-
-
+ 
 const [gameInfo, setGameInfo] = useState([]) 
 
 
-  const getGameInfo = async(i) => {
-    const response = await fetch (`https://api.rawg.io/api/games/${i}?key=880241c0a7e24864aef2b9d1687af70d`)
-    const data = await response.json()
-    setGameInfo(data) 
-  }
+const getGameInfo = async(i) => {
+  const response = await fetch (`https://api.rawg.io/api/games/${i}?key=880241c0a7e24864aef2b9d1687af70d`)
+  const data = await response.json()
+  setGameInfo(data) 
+}
 
   useEffect(() =>{
-    getGameInfo(id)
-  },[selectedGame])   
+    getGameInfo(id) 
+  },[selectedGame, selectedSanityGame])   
 
-  useEffect(() =>{
-    getGameInfo(sanityId)
-  },[selectedSanityGame])  
 
+  console.log(selectedGame) 
+  console.log(selectedSanityGame)
+  console.log(gameInfo) 
   
 
-//kode for å lagre favoritt  (localstorage)
 
-  const savedFav = () => {
-    const saved = localStorage.getItem("favoritt") 
-    const initialValue = JSON.parse(saved) 
-    return initialValue || "";
-  }
-/*
-  const [favourites, setFavourites] = useState(savedFav) 
+  const addFavourite = () => { 
+    !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
+  }     
+
+ console.log(favourites)
+
   
-  const addFavourite = () => {
-    setFavourites((prev) => [...prev, selectedGame.name])
-  }   
-
-  useEffect(()=>{
-    localStorage.setItem("favoritt", JSON.stringify(favourites))
-  },[favourites])  
-  */
-
-console.log(selectedGame) 
-console.log(selectedSanityGame)
-console.log(gameInfo) 
-
   return(
     <>  
    
