@@ -35,7 +35,7 @@ fields: [
     name: "wishlist",
     title: "Ønskeliste",
     type: 'array',
-    of: [{type: 'string'}]
+    of: [{type: 'games'}]
   }
 ]
 }

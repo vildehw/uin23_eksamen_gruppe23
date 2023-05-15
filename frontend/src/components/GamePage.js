@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
+import { writeClient } from "../sanity/client"
 
 export default function GamePage({games, sanitygames}) {
  
@@ -40,9 +41,9 @@ const [gameInfo, setGameInfo] = useState([])
     const initialValue = JSON.parse(saved) 
     return initialValue || "";
   }
-
+/*
   const [favourites, setFavourites] = useState(savedFav) 
-
+  
   const addFavourite = () => {
     setFavourites((prev) => [...prev, selectedGame.name])
   }   
@@ -50,11 +51,11 @@ const [gameInfo, setGameInfo] = useState([])
   useEffect(()=>{
     localStorage.setItem("favoritt", JSON.stringify(favourites))
   },[favourites])  
+  */
 
 console.log(selectedGame) 
 console.log(selectedSanityGame)
 console.log(gameInfo) 
-
 
   return(
     <>  
@@ -73,9 +74,9 @@ console.log(gameInfo)
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
-    <button className="button" onClick={addFavourite}>add to favorites</button>
-  
-    
+    <button className="button" onClick={addWishlist}>add to wishlist</button>
     </>
   )
 } 
+
+// {selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
