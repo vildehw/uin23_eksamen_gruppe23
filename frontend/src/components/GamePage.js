@@ -48,7 +48,6 @@ const getGameInfo = async(i) => {
   
   return(
     <>  
-   
     <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
 
     <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
@@ -63,7 +62,7 @@ const getGameInfo = async(i) => {
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
-    <button className="button" onClick={addWishlist}>add to wishlist</button>
+    <button className="button" onClick={addFavourite}>add to Favorites</button>
     </>
   )
 } 

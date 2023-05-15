@@ -14,7 +14,7 @@ export default function MyGameCard({sanitygames, gamesAmount}){
     sanitygames?.filter((game, index) => (index < gamesAmount)).map((game, index) => (
       <article key={index} className="gamecard">
       <h3>{game.game_title}</h3>  
-      <p>Genre:</p>
+      <p>Genre: {game?.genre?.map((g) => (<h4>{g.genre_title}</h4>))}</p>
       <p>Played: {game.playtime} hours</p>
       <button className="button" onClick={() => (handleClick(`../${game.slug.current}`))}>Read More</button>
       </article>
