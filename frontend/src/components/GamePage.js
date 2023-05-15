@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
-import { useEffect, useState } from "react" 
+import { useEffect, useState } from "react"
+import { updateWishlist } from "../sanity/userServices"
 //import { TagCloud } from 'react-tagcloud'
 
 export default function GamePage({games, sanitygames, favourites, setFavourites, user}) {
@@ -37,13 +38,23 @@ const getGameInfo = async(i) => {
   console.log(selectedSanityGame)
  // console.log(gameInfo) 
   
-
   const addFavourite = () => { 
     !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
   }     
 
  console.log(favourites)   
 
+// Lagrer spill til Sanity
+const addWishlist = async (e) => {
+  const name = selectedGame? selectedGame?.name : selectedSanityGame?.game_title
+  const gameId = selectedGame? selectedGame?.id : sanityId
+  const userId = "drafts.bc279e4f-880a-43b2-81a8-5ca7fba63241"
+  e.preventDefault()
+  const result = await updateWishlist(name, gameId, userId)
+  console.log(result)
+}
+
+// Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
 
  
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
@@ -72,8 +83,8 @@ const getGameInfo = async(i) => {
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    <button onClick={addFavourite}>add to favorites</button>
-   <article>
+    {selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
+    <article>
     {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
 }
     </article>
@@ -81,5 +92,3 @@ const getGameInfo = async(i) => {
     
   )
 } 
-
-// {selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
