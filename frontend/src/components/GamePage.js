@@ -50,10 +50,10 @@ const getGameInfo = async(i) => {
  console.log(gameTags)
 
  const colours = {
-  hue: 'purple'
+  hue: 'blue',  
+  luminosity: 'bright'
  } 
- // kilde: https://madox2.github.io/react-tagcloud/ 
- //https://github.com/davidmerfield/randomColor
+ // kilder: https://madox2.github.io/react-tagcloud/ & https://github.com/davidmerfield/randomColor
   
   return(
     <>  
@@ -74,7 +74,7 @@ const getGameInfo = async(i) => {
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     <button onClick={addFavourite}>add to favorites</button>
    <article>
-    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours}/> : null}
+    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     </article>
     </> 
     
