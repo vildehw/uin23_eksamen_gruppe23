@@ -1,6 +1,6 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react" 
-import { TagCloud } from 'react-tagcloud'
+//import { TagCloud } from 'react-tagcloud'
 
 export default function GamePage({games, sanitygames, favourites, setFavourites}) {
  
@@ -72,9 +72,11 @@ const getGameInfo = async(i) => {
     <p>Release: {gameInfo?.released}</p> 
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
+    {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
     <button onClick={addFavourite}>add to favorites</button>
    <article>
-    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+}
     </article>
     </> 
     
