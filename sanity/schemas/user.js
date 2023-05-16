@@ -14,8 +14,8 @@ fields: [
     type: "string"
   },
   {
-    name: "games",
-    title: "Spill",
+    name: "mygames",
+    title: "Mine spill",
     type: 'array',
     of: [{type: 'reference',
      to: [
