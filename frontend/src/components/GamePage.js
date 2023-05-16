@@ -2,7 +2,6 @@ import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 import { updateWishlist } from "../sanity/userServices"
 import { TagCloud } from 'react-tagcloud'
-import { TagCloud } from 'react-tagcloud'
 
 export default function GamePage({games, sanitygames, favourites, setFavourites, user, sanityUser}) {
  
