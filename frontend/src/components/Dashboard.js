@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export default function Dashboard({games, sanitygames, favourites, sanityUser, userFav}) { 
 
-
   //kode for å telle antall spill i myGames (groq-count)
   const[sanityCount, setSanityCount] = useState(null) 
 

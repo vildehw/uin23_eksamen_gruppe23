@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Outlet } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import Login from "./Login";
@@ -23,7 +23,7 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
        if(user){setUser("") 
         setSanityUser("")}
     }
-    
+
     return (
         <>
         <header> 

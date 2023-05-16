@@ -1,4 +1,4 @@
-export default function Login({setEmail, email, login, user}) {
+export default function Login({setEmail, login, user}) {
 
   function handleClick(){
     setEmail(document.getElementById("email-input").value)

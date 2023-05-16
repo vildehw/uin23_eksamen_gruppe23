@@ -16,9 +16,7 @@ export default function GamePage({games, sanitygames, sanityUser, setUserFav, us
 
   !selectedSanityGame ? id = apiId : id = sanityId
 
- 
 const [gameInfo, setGameInfo] = useState([]) 
-
 
 const getGameInfo = async(i) => {
   const response = await fetch (`https://api.rawg.io/api/games/${i}?key=880241c0a7e24864aef2b9d1687af70d`)
@@ -35,10 +33,6 @@ const getGameInfo = async(i) => {
   }   
   
   console.log(selectedSanityGame)
-
-
-
-
  
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
  console.log(gameTags)
@@ -67,7 +61,6 @@ const getGameInfo = async(i) => {
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
     {sanityUser && selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
-
     <article>
     {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     </article>
