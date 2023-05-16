@@ -92,11 +92,11 @@ console.log(favourites)
   return (
     <Routes> 
       <Route element={<Layout user={user} setUser={setUser} email={email} setEmail={setEmail} sanityUser={sanityUser} setSanityUser={setSanityUser}/>}>
-        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} favourites={favourites}/>}/>
+        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} favourites={favourites} sanityFav={sanityFav}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames}/>}/>
         <Route path='/favourites' element={<MyFavourites favourites={favourites} sanityFav={sanityFav}/>}/>  
-        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites}/>}/>
+        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites} sanityUser={sanityUser}/>}/>
       </Route>
     </Routes>
   );

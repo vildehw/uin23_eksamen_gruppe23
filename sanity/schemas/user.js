@@ -26,10 +26,7 @@ fields: [
     name: "favourites",
     title: "Favoritter",
     type: 'array',
-    of: [{type: 'reference',
-    to: [
-       {type: 'games'}
-   ]}]
+    of: [{type: 'favourites'}]
   },
   {
     name: "wishlist",

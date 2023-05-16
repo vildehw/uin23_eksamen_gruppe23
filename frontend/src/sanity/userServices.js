@@ -4,9 +4,10 @@ import { client } from "./client"
 export const fetchAllUsers = async () => {
   const data = await client.fetch(`*[_type == "user"]{
     username, 
-    email,  
+    email,   
+    _id,
     games[]->{game_title, api_id, playtime, slug, genre[]->{genre_title},},
-    favourites[]->{game_title, api_id, playtime, slug, genre[]->{genre_title}},  
+    favourites[]->{game_title, id, playtime, slug, genre[]->{genre_title}},  
     
 }`)
   return data 
@@ -18,6 +19,17 @@ export async function updateWishlist(name, gameId, userId) {
   .commit({autoGenerateKeys: true})
   .then(() => {return "Game added to wishlist successfully!"})
   .catch((err) => {return "Game save to wishlist failed: " + err.message})
+
+  return result
+} 
+
+export async function updateFavourites(name, gameId, userId) {
+  const result = await writeClient.patch(userId)
+  .setIfMissing({favourites: []})
+  .append("favourites", [{title: name, id: gameId}])
+  .commit({autoGenerateKeys: true})
+  .then(() => {return "Game added to favourites successfully!"})
+  .catch((err) => {return "Game save to favourites failed: " + err.message})
 
   return result
 }

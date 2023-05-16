@@ -1,9 +1,9 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
-import { updateWishlist } from "../sanity/userServices"
-//import { TagCloud } from 'react-tagcloud'
+import { updateFavourites, updateWishlist } from "../sanity/userServices"
+import { TagCloud } from 'react-tagcloud'
 
-export default function GamePage({games, sanitygames, favourites, setFavourites, user}) {
+export default function GamePage({games, sanitygames, favourites, setFavourites, user, sanityUser}) {
  
   const {slug} = useParams()
 
@@ -31,15 +31,27 @@ const getGameInfo = async(i) => {
     getGameInfo(id) 
   },[selectedGame, selectedSanityGame])   
   
-  const addFavourite = () => { 
-    !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
-  }     
+  const addFavourite = () => {   
+   !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
+  }   
+  
+  //lagre favoritter i sanity
+  const addSanityFav = async() => { 
+    const name = selectedSanityGame?.game_title 
+    const gameId = sanityId 
+    const userId = `drafts.${sanityUser._id}`
+  
+    const result = await updateFavourites (name, gameId, userId) 
+    console.log('addSanityFav') 
+    console.log(result)
+    return result
+  }
 
 // Lagrer spill til Sanity
 const addWishlist = async (e) => {
-  const name = selectedGame? selectedGame?.name : selectedSanityGame?.game_title
-  const gameId = selectedGame? selectedGame?.id : sanityId
-  const userId = "drafts.bc279e4f-880a-43b2-81a8-5ca7fba63241"
+  const name =  selectedGame?.name 
+  const gameId = selectedGame?.id 
+  const userId = `drafts.${sanityUser._id}`
   e.preventDefault()
   const result = await updateWishlist(name, gameId, userId)
   return result
@@ -74,7 +86,7 @@ const addWishlist = async (e) => {
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    {selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
+    {selectedSanityGame ? <button className="button" onClick={sanityUser? addSanityFav : addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
     <article>
     {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
 }

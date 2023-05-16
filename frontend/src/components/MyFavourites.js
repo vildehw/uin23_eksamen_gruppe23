@@ -12,7 +12,7 @@ export default function MyFavourites({favourites, sanityFav}) {
     <h1>FAVOURITES</h1> 
 
     <MyGameCard sanitygames={sanityFav} gamesAmount={10}/>
-    <MyGameCard sanitygames={favourites} gamesAmount={10}/>
+    
     
     
 
