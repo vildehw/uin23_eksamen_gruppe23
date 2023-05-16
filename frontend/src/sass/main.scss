@@ -214,9 +214,11 @@ main {
     padding: 0.5rem;
     width: 130px;
     justify-self: flex-end;
+    margin: 0 0.5rem;
 
     &:hover {
         cursor: pointer;
+        background-color: $mainColor;
     }
 }
 
@@ -291,4 +293,9 @@ main {
 
 #wishlist {
     color: $dark-green;
+}
+
+#GPimg {
+    max-width: 400px;
+    height: auto;
 }

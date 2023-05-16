@@ -58,8 +58,8 @@ const addWishlist = async () => {
   return(
     <>  
     <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
-
-    <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
+    <section>
+    <img id="GPimg" src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
     {selectedSanityGame ? <p>Played: {selectedSanityGame?.playtime} hours</p> : null } 
     <p>Genres: </p> <ul>{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li>{g.genre_title}</li>) : selectedGame?.genres?.map((g,i) => <li>{g.name}</li>)}</ul>
     
@@ -76,6 +76,7 @@ const addWishlist = async () => {
     <article>
     {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     </article>
+    </section>
     </> 
     
   )

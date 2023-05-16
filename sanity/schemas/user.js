@@ -31,11 +31,5 @@ fields: [
        {type: 'games'}
    ]}]
   },
-  {
-    name: "wishlist",
-    title: "Ønskeliste",
-    type: 'array',
-    of: [{type: 'wishlist'}]
-  }
 ]
 }
