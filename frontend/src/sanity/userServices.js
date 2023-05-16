@@ -1,4 +1,5 @@
 import { writeClient } from "./client"
+import { client } from "./client"
 
 export const fetchAllUsers = async () => {
   const data = await client.fetch(`*[_type == "user"]{
@@ -8,7 +9,8 @@ export const fetchAllUsers = async () => {
     favourites[]->{game_title, api_id, playtime, slug, genre[]->{genre_title}},  
     
 }`)
-  return data
+  return data 
+}
 export async function updateWishlist(name, gameId, userId) {
   const result = await writeClient.patch(userId)
   .setIfMissing({wishlist: []})
