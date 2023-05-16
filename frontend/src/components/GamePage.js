@@ -35,6 +35,10 @@ const getGameInfo = async(i) => {
   }   
   
   console.log(selectedSanityGame)
+
+
+
+
  
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
  console.log(gameTags)
