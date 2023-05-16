@@ -1,6 +1,4 @@
-import GameCard from "./GameCard"
 import MyGameCard from "./MyGameCard"
-
 
 export default function MyFavourites({favourites, userFav}) { 
 
@@ -11,12 +9,7 @@ export default function MyFavourites({favourites, userFav}) {
     <>
     <h1 id="favourites">FAVOURITES</h1> 
     <section>
-
-    <MyGameCard sanitygames={userFav} gamesAmount={10}/>
-    
-    
-    
-
+      <MyGameCard sanitygames={userFav} gamesAmount={10}/>
     </section> 
     </>
   )

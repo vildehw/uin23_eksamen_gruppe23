@@ -10,7 +10,6 @@ import Layout from './components/Layout';
 import GamePage from './components/GamePage';
 import { fetchAllGames } from "./sanity/gameServices";
 import { fetchAllUsers } from './sanity/userServices';
-import MyWishlist from './components/MyWishlist';
 
 function App() {
 
@@ -25,7 +24,6 @@ function App() {
   }
 
   const [games, setGames] = useState([])
-  //const [platformerGames, setPlatformerGames] = useState([])
 
   const getGames = async() => {
     const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}`)
@@ -36,8 +34,6 @@ function App() {
   useEffect(() =>{
     getGames()
   },[])
-
-
 
   const[sanitygames, setSanitygames] = useState(null) 
 
@@ -50,8 +46,6 @@ function App() {
     getSanityGames()
   }, []) 
 
-  
-  
 const [user, setUser] = useState("")
 const [email, setEmail] = useState("")
 const [sanityUser, setSanityUser] = useState("")
@@ -67,7 +61,6 @@ getSanityUsers()
 
 console.log(sanityUser) 
 
-
 const [userFav, setUserFav] = useState([])
 
 useEffect(() => {
@@ -76,8 +69,6 @@ useEffect(() => {
   }, [sanityUser])   
 
 const userGames = sanityUser.games
-
-
 
   return (
     <Routes> 

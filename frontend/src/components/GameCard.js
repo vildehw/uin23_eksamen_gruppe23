@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function GameCard({games, gamesAmount}) { 
 
@@ -9,10 +9,8 @@ export default function GameCard({games, gamesAmount}) {
   } 
   // Kilde: https://stackoverflow.com/questions/68825965/react-router-v6-usenavigate-doesnt-navigate-if-replacing-last-element-in-path
 
-
   return(
   games?.filter((game, index) => (index < gamesAmount)).map((game, index) => (
-    
     <article className="gamecard" key={index}>
     <img src={game.background_image} alt={game.name + " poster"} className="poster" />
     <div className="game-info">
@@ -21,7 +19,6 @@ export default function GameCard({games, gamesAmount}) {
       <button className="button" onClick={() => (handleClick(`../${game.slug}`))}>Read more</button>
     </div>
     </article>
-    
    ))
   )
 }

@@ -16,5 +16,3 @@ export default function Login({setEmail, email, login, user}) {
     </section>
   )
 }
-
-//       <input type="submit" id="login-btn" value="LOGIN" onSubmit={handleSubmit}></input>

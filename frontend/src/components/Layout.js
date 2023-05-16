@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import Login from "./Login";
-import logo from "../logos/1x/macslogo_white.png";
 import AC from "../logos/AC.jpeg";
 import TM from "../logos/TM.png";
-import { fetchAllUsers } from "../sanity/userServices";
 
 export default function Layout ({user, setUser, email, setEmail, setSanityUser, sanityUser}){
 
@@ -25,9 +23,7 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
        if(user){setUser("") 
         setSanityUser("")}
     }
-
-
-    //             <img src={logo} alt="MAC's gamehub"/>
+    
     return (
         <>
         <header> 
