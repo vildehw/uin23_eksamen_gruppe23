@@ -6,7 +6,7 @@ export const fetchAllUsers = async () => {
     username, 
     email,   
     _id,
-    games[]->{game_title, api_id, playtime, slug, genre[]->{genre_title},},
+    mygames[]->{game_title, api_id, playtime, slug, genre[]->{genre_title},},
     favourites[]->{game_title, api_id, playtime, slug, genre[]->{genre_title}},  
 }`)
   return data 
