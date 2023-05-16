@@ -25,11 +25,11 @@ fields: [
   {
     name: "favourites",
     title: "Favoritter",
-    type: 'array',
+    type: 'array', 
     of: [{type: 'reference',
     to: [
-       {type: 'games'}
-   ]}]
+        {type: 'games'}
+    ]}]
   },
 ]
 }

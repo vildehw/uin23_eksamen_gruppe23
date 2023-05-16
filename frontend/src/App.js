@@ -67,31 +67,26 @@ getSanityUsers()
 
 console.log(sanityUser) 
 
-const [favourites, setFavourites] = useState([])  
-const [sanityFav, setSanityFav] = useState([])
-const [wishlist, setWishlist] = useState([])
+
+const [userFav, setUserFav] = useState([])
 
 useEffect(() => {
-  const userFav = sanityUser.favourites 
-  setSanityFav(userFav)
-  ///const wishlist = sanityUser.wislist.map((game) => ())
-  setWishlist(sanityUser.wishlist)
+  const userFavourites = sanityUser.favourites 
+  setUserFav(userFavourites)
   }, [sanityUser])   
 
 const userGames = sanityUser.games
 
-console.log(wishlist)
 
 
   return (
     <Routes> 
       <Route element={<Layout user={user} setUser={setUser} email={email} setEmail={setEmail} sanityUser={sanityUser} setSanityUser={setSanityUser}/>}>
-        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} favourites={favourites}/>}/>
+        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} userFav={userFav}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames}/>}/>
-        <Route path='/favourites' element={<MyFavourites favourites={favourites} sanityFav={sanityFav}/>}/>  
-        <Route path='/wishlist' element={<MyWishlist/>}/>  
-        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites} sanityUser={sanityUser}/>}/>
+        <Route path='/favourites' element={<MyFavourites userFav={userFav}/>}/>  
+        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} sanityUser={sanityUser} setUserFav={setUserFav} userFav={userFav}/>}/>
       </Route>
     </Routes>
   );
