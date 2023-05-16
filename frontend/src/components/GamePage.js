@@ -62,7 +62,8 @@ const getGameInfo = async(i) => {
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
     {sanityUser && selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
     <article>
-    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    }
     </article>
     </section>
     </> 

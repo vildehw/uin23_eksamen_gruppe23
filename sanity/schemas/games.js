@@ -35,6 +35,11 @@ export default {
              to: [
                 {type: 'genres'}
             ]}]
-        }
+        }, 
+        {
+            name: 'image_url',
+            type: 'url',
+            title: 'Bilde URL'
+          }
     ]
 }
