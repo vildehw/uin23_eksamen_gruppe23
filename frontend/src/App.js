@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import GamePage from './components/GamePage';
 import { fetchAllGames } from "./sanity/gameServices";
 import { fetchAllUsers } from './sanity/userServices';
+import MyWishlist from './components/MyWishlist';
 
 function App() {
 
@@ -31,14 +32,6 @@ function App() {
     const data = await response.json()
     setGames(data?.results)
   }
-
-  /*
-  const getPlatformerGames = async() =>{
-    const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}&genres=platformer`)
-    const data = await response.json()
-    setPlatformerGames(data?.results)
-  }
-  */
 
   useEffect(() =>{
     getGames()
@@ -65,28 +58,29 @@ const [sanityUser, setSanityUser] = useState("")
 
 const getSanityUsers = async () => {
 const data = await fetchAllUsers()   
-console.log(data)
 data.map((d) => (d.username === user? setSanityUser(d) : null ))
 }  
 
 useEffect(() => {
 getSanityUsers()
-console.log(sanityUser)
 }, [user])   
 
 console.log(sanityUser) 
 
 const [favourites, setFavourites] = useState([])  
 const [sanityFav, setSanityFav] = useState([])
+const [wishlist, setWishlist] = useState([])
 
 useEffect(() => {
   const userFav = sanityUser.favourites 
   setSanityFav(userFav)
+  ///const wishlist = sanityUser.wislist.map((game) => ())
+  setWishlist(sanityUser.wishlist)
   }, [sanityUser])   
 
 const userGames = sanityUser.games
 
-console.log(favourites) 
+console.log(wishlist)
 
 
   return (
@@ -96,7 +90,8 @@ console.log(favourites)
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames}/>}/>
         <Route path='/favourites' element={<MyFavourites favourites={favourites} sanityFav={sanityFav}/>}/>  
-        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites}/>}/>
+        <Route path='/wishlist' element={<MyWishlist/>}/>  
+        <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} setFavourites={setFavourites} favourites={favourites} sanityUser={sanityUser}/>}/>
       </Route>
     </Routes>
   );

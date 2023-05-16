@@ -1,9 +1,9 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
 import { updateWishlist } from "../sanity/userServices"
-//import { TagCloud } from 'react-tagcloud'
+import { TagCloud } from 'react-tagcloud'
 
-export default function GamePage({games, sanitygames, favourites, setFavourites, user}) {
+export default function GamePage({games, sanitygames, favourites, setFavourites, user, sanityUser}) {
  
   const {slug} = useParams()
 
@@ -36,13 +36,11 @@ const getGameInfo = async(i) => {
   }     
 
 // Lagrer spill til Sanity
-const addWishlist = async (e) => {
-  const name = selectedGame? selectedGame?.name : selectedSanityGame?.game_title
-  const gameId = selectedGame? selectedGame?.id : sanityId
-  const userId = "drafts.bc279e4f-880a-43b2-81a8-5ca7fba63241"
-  e.preventDefault()
+const addWishlist = async () => {
+  const name = selectedGame?.name
+  const gameId = selectedGame?.id
+  const userId = `drafts.${sanityUser._id}`
   const result = await updateWishlist(name, gameId, userId)
-  return result
 }
 
 // Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
@@ -76,8 +74,7 @@ const addWishlist = async (e) => {
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
     {selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
     <article>
-    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
-}
+    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     </article>
     </> 
     

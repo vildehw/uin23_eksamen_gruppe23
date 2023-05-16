@@ -4,20 +4,22 @@ import { client } from "./client"
 export const fetchAllUsers = async () => {
   const data = await client.fetch(`*[_type == "user"]{
     username, 
-    email,  
+    email,
+    _id,
     games[]->{game_title, api_id, playtime, slug, genre[]->{genre_title},},
     favourites[]->{game_title, api_id, playtime, slug, genre[]->{genre_title}},  
-    
+    wishlist[]->{_key, title, id}
 }`)
   return data 
 }
+
 export async function updateWishlist(name, gameId, userId) {
   const result = await writeClient.patch(userId)
   .setIfMissing({wishlist: []})
   .append("wishlist", [{title: name, id: gameId}])
   .commit({autoGenerateKeys: true})
-  .then(() => {return "Game added to wishlist successfully!"})
-  .catch((err) => {return "Game save to wishlist failed: " + err.message})
+  .then(() => {return "Successfully added game to wishlist!"})
+  .catch((err) => {return "Failed to save game to wishlist: " + err.message})
 
   return result
 }

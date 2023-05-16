@@ -4,9 +4,13 @@
 
 //FONTS
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Mulish:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 //Font variables
 $headerfont:    'Kanit', sans-serif;
 $textfont:      'Mulish', sans-serif;
+$logofont: 'Press Start 2P';
+
 //Font classes
 .headerfont {
     font-family: $headerfont;
@@ -43,12 +47,16 @@ a {
 
 //COLORS
 $red:           #C00100;
-$orange:        #FFA100;
 $black:         #000000;
 $white:         #ffffff;
 $light-grey:    #f3f3f3;
 $dark-grey:     #232323;
-$green:         #6ea100;
+
+$mainColor: rgb(72, 192, 244);
+$pink: rgb(242, 91, 116);
+$orange: rgb(235, 153, 0);
+$green: rgb(82, 192, 46);
+$dark-green: rgb(29, 143, 97);
 
 $warning: $orange;
 $success: $green;
@@ -71,12 +79,13 @@ body {
 }
 
 header {
-    background-color: $black;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: $gaps;
+    margin: 1rem;
    
     h1 {
         color: $white;
@@ -87,6 +96,41 @@ header {
         color: $white;
         text-decoration: none;
         font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+
+    #shop {
+        color: $pink;
+    }
+
+    #games {
+        color: $orange
+    }
+
+    #favourites {
+        color: $green;
+    }
+
+    #wishlist {
+        color: $dark-green;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    #logo {
+        font-family: $logofont;
+        color: $mainColor;
+        text-decoration: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
     }
 }
 
@@ -96,7 +140,7 @@ footer {
     flex-direction: row;
     width: 100%;
     padding: 1rem;
-    position: fixed;
+   // position: fixed;
     bottom: 0;
 
     a {
@@ -187,31 +231,31 @@ main {
 #icon {
     width: 45px;
     height: 45px;
-    color: $white;
+    color: $mainColor;
     font-size: 2.5rem;
     border-radius: 50%;
 }
 
 #login-window {
-    position: absolute;
-    top: 15px;
-    right: 90px;
-    background-color: rgb(221, 221, 221);
+    //position: absolute;
+    //top: 15px;
+    //right: 90px;
+    background-color: $white;
     padding: 0.5rem;
     border-radius: 1rem;
 
     #login-btn {
-        background: linear-gradient(rgb(39, 131, 177), rgb(6, 4, 29));
+        background: $mainColor;
         border-radius: 2rem;
         color: $white;
         font-weight: bold;
         border: none;
         padding: 1rem 1rem;
         font-size: 1rem;
-        box-shadow: 0px 5px 5px rgb(200, 200, 200);
+        box-shadow: 0px 5px 5px rgb(230, 230, 230);
 
         &:hover {
-            background: linear-gradient(rgb(39, 131, 177), rgb(112, 138, 182));
+            background: linear-gradient($mainColor, rgb(9, 48, 164));
             cursor: pointer;
         }
     }
@@ -222,13 +266,29 @@ main {
         border-radius: 0.5rem;
         font-size: 1rem;
         border: none;
-        box-shadow: 0px 5px 5px rgb(200, 200, 200);
+        box-shadow: 0px 5px 5px rgb(230, 230, 230);
         width: 200px;
     }
 }
 
 #profile-img {
-    width: 45px;
+    width: 60px;
     height: auto;
     border-radius: 2rem;
+}
+
+#gameshop {
+    color: $pink;
+}
+
+#mygames {
+    color: $orange;
+}
+
+#favourites {
+    color: $green;
+}
+
+#wishlist {
+    color: $dark-green;
 }
