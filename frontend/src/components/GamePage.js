@@ -37,16 +37,8 @@ const getGameInfo = async(i) => {
   
   console.log(selectedSanityGame)
 
-// Lagrer spill til Sanity
-const addWishlist = async (e) => {
-  const name =  selectedGame?.name 
-  const gameId = selectedGame?.id 
-  const userId = `drafts.${sanityUser._id}`
-  e.preventDefault()
-  const result = await updateWishlist(name, gameId, userId)
-}
 
-// Kilde for å legge data inn i sanity fra brukergrensesnittet: https://webtricks.blog/oppdatere-et-array-felt-i-en-innholdstype-i-sanity-fra-et-react-grensesnitt/ 
+
 
  
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
