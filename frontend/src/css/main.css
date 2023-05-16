@@ -1,6 +1,7 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Mulish:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 .headerfont {
   font-family: "Kanit", sans-serif;
   font-weight: 700;
@@ -38,12 +39,13 @@ body {
 }
 
 header {
-  background-color: #000000;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
+  margin: 1rem;
 }
 header h1 {
   color: #ffffff;
@@ -53,6 +55,33 @@ header .nav-link {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.5rem;
+}
+header #shop {
+  color: rgb(242, 91, 116);
+}
+header #games {
+  color: rgb(235, 153, 0);
+}
+header #favourites {
+  color: rgb(82, 192, 46);
+}
+header #wishlist {
+  color: rgb(29, 143, 97);
+}
+header a {
+  text-decoration: none;
+}
+header #logo {
+  font-family: "Press Start 2P";
+  color: rgb(72, 192, 244);
+  text-decoration: none;
+}
+header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
 footer {
@@ -61,7 +90,6 @@ footer {
   flex-direction: row;
   width: 100%;
   padding: 1rem;
-  position: fixed;
   bottom: 0;
 }
 footer a {
@@ -129,9 +157,11 @@ main {
   padding: 0.5rem;
   width: 130px;
   justify-self: flex-end;
+  margin: 0 0.5rem;
 }
 .button:hover {
   cursor: pointer;
+  background-color: rgb(72, 192, 244);
 }
 
 #favourites-section {
@@ -145,31 +175,28 @@ main {
 #icon {
   width: 45px;
   height: 45px;
-  color: #ffffff;
+  color: rgb(72, 192, 244);
   font-size: 2.5rem;
   border-radius: 50%;
 }
 
 #login-window {
-  position: absolute;
-  top: 15px;
-  right: 90px;
-  background-color: rgb(221, 221, 221);
+  background-color: #ffffff;
   padding: 0.5rem;
   border-radius: 1rem;
 }
 #login-window #login-btn {
-  background: linear-gradient(rgb(39, 131, 177), rgb(6, 4, 29));
+  background: rgb(72, 192, 244);
   border-radius: 2rem;
   color: #ffffff;
   font-weight: bold;
   border: none;
   padding: 1rem 1rem;
   font-size: 1rem;
-  box-shadow: 0px 5px 5px rgb(200, 200, 200);
+  box-shadow: 0px 5px 5px rgb(230, 230, 230);
 }
 #login-window #login-btn:hover {
-  background: linear-gradient(rgb(39, 131, 177), rgb(112, 138, 182));
+  background: linear-gradient(rgb(72, 192, 244), rgb(9, 48, 164));
   cursor: pointer;
 }
 #login-window #email-input {
@@ -178,14 +205,35 @@ main {
   border-radius: 0.5rem;
   font-size: 1rem;
   border: none;
-  box-shadow: 0px 5px 5px rgb(200, 200, 200);
+  box-shadow: 0px 5px 5px rgb(230, 230, 230);
   width: 200px;
 }
 
 #profile-img {
-  width: 45px;
+  width: 60px;
   height: auto;
   border-radius: 2rem;
+}
+
+#gameshop {
+  color: rgb(242, 91, 116);
+}
+
+#mygames {
+  color: rgb(235, 153, 0);
+}
+
+#favourites {
+  color: rgb(82, 192, 46);
+}
+
+#wishlist {
+  color: rgb(29, 143, 97);
+}
+
+#GPimg {
+  max-width: 400px;
+  height: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

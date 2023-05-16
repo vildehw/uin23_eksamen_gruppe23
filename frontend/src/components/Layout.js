@@ -26,28 +26,32 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
         setSanityUser("")}
     }
 
+
+    //             <img src={logo} alt="MAC's gamehub"/>
     return (
         <>
         <header> 
             <Link to="/">
-                <img src={logo} alt="MAC's gamehub"/>
+                <h1 id="logo">GameHub23</h1>
             </Link>
             <nav>
-                <NavLink className="nav-link" to="/gameshop">Shop</NavLink> 
-                <NavLink className="nav-link" to="/mygames">My games</NavLink>
-                <NavLink className="nav-link" to="/favourites">Favorites</NavLink> 
+                <NavLink id="shop" className="nav-link" to="/gameshop">Shop</NavLink> 
+                <NavLink id="games" className="nav-link" to="/mygames">My games</NavLink>
+                <NavLink id="favourites" className="nav-link" to="/favourites">Favorites</NavLink> 
+                <NavLink id="wishlist" className="nav-link" to="/wishlist">Wishlist</NavLink> 
             </nav>
+            <div>
+            {user === "Ann-Charlott" || user === "Tore Marius" ?  <h3>{sanityUser?.username}</h3> : <Login user={user} setEmail={setEmail} email={email} login={login}/>}
             {user === "" ? <i id="icon" className="bi bi-person-circle"></i> : <img id="profile-img" alt="Profilbilde" src={user === "Ann-Charlott" ? AC : user === "Tore Marius" ? TM : ""}/>}
+            </div>
         </header>  
         <main>
-        <p>{sanityUser?.username}</p>
             <Outlet/>
             {user === "" ? null : <button onClick={logOut}>SIGN OUT</button>}
-            {user === "Ann-Charlott" || user === "Tore Marius" ? null : <Login user={user} setEmail={setEmail} email={email} login={login}/>}
         </main>
-        {/*<footer>
+        <footer>
             <a href="https://rawg.io/apidocs" rel="noreferrer" target="_blank" >Games fetched with RAWG Video Games Database API (v1.0)</a>
-            </footer>*/}
+            </footer>
         </>
     )
 }

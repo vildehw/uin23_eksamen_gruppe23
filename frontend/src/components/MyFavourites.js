@@ -8,14 +8,14 @@ export default function MyFavourites({favourites, sanityFav}) {
   console.log(sanityFav)
 
   return(
+    <>
+    <h1 id="favourites">FAVOURITES</h1> 
     <section>
-    <h1>FAVOURITES</h1> 
 
     <MyGameCard sanitygames={sanityFav} gamesAmount={10}/>
     <MyGameCard sanitygames={favourites} gamesAmount={10}/>
-    
-    
-
+  
     </section> 
+    </>
   )
 }
