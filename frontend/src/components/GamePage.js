@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { updateFavourites, updateWishlist } from "../sanity/userServices"
 import { TagCloud } from 'react-tagcloud'
 
-export default function GamePage({games, sanitygames, favourites, setFavourites, user, sanityUser}) {
+export default function GamePage({games, sanitygames, sanityUser, setUserFav, userFav}) {
  
   const {slug} = useParams()
 
@@ -32,20 +32,10 @@ const getGameInfo = async(i) => {
   },[selectedGame, selectedSanityGame])   
   
   const addFavourite = () => {   
-   !favourites.includes(gameInfo) ? setFavourites(prev => [...prev, gameInfo]) : console.log("denne er allerede favoritt")
+   !userFav.includes(selectedSanityGame) ? setUserFav(prev => [...prev, selectedSanityGame]) : console.log("denne er allerede favoritt")
   }   
   
-  //lagre favoritter i sanity
-  const addSanityFav = async() => { 
-    const name = selectedSanityGame?.game_title 
-    const gameId = sanityId 
-    const userId = `drafts.${sanityUser._id}`
-  
-    const result = await updateFavourites (name, gameId, userId) 
-    console.log('addSanityFav') 
-    console.log(result)
-    return result
-  }
+  console.log(selectedSanityGame)
 
 // Lagrer spill til Sanity
 const addWishlist = async (e) => {
@@ -86,7 +76,8 @@ const addWishlist = async (e) => {
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    {selectedSanityGame ? <button className="button" onClick={sanityUser? addSanityFav : addFavourite}>add to favorites</button> : <button className="button" onClick={addWishlist}>add to wishlist</button>}
+    {sanityUser && selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
+
     <article>
     {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
 }

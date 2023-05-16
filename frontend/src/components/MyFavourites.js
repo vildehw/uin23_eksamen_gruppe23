@@ -2,16 +2,16 @@ import GameCard from "./GameCard"
 import MyGameCard from "./MyGameCard"
 
 
-export default function MyFavourites({favourites, sanityFav}) { 
+export default function MyFavourites({favourites, userFav}) { 
 
   console.log(favourites) 
-  console.log(sanityFav)
+  console.log(userFav)
 
   return(
     <section>
     <h1>FAVOURITES</h1> 
 
-    <MyGameCard sanitygames={sanityFav} gamesAmount={10}/>
+    <MyGameCard sanitygames={userFav} gamesAmount={10}/>
     
     
     

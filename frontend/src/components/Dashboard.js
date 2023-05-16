@@ -41,8 +41,8 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, s
           <div className="section-headline">
           <h2>MY FAVOURITES</h2>
           </div> 
-          {<GameCard games={favourites} gamesAmount={4}/> }
-          <MyGameCard sanitygames={sanityFav} gamesAmount={4}/> 
+          <MyGameCard sanitygames={sanityFav} gamesAmount={6}/>  
+          <MyGameCard sanitygames={favourites} gamesAmount={6}/> 
           <button>Go to favourites</button>
         </section>
       </section>
