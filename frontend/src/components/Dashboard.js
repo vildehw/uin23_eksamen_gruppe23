@@ -24,15 +24,16 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, u
     <>
       <div className="section-headline">
         <h2>GameShop</h2>
-        <Link to="/gameshop"><button className="button">Visit shop</button></Link>
+        <Link to="/gameshop"><button id="shop-button">Visit shop</button></Link>
       </div>
-      <section id="gameshop-window">
+      <section id="games-section">
         <GameCard games={games} gamesAmount={3}/>
       </section>
       <section id="my-games-section">
-        <section>
+        <section id="my-games-library">
           <div className="section-headline">
           <h2>MY GAMES-LIBRARY - {sanityCount}</h2>
+          <Link to="/mygames"><button id="library-button">Go to library</button></Link>
           </div>
           <MyGameCard sanitygames={sanitygames} gamesAmount={4}/>
         </section>
@@ -41,7 +42,7 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, u
           <h2>MY FAVOURITES</h2>
           </div> 
           <MyGameCard sanitygames={userFav} gamesAmount={6}/>  
-          <button className="button"> Go to favourites</button>
+          <Link to="/favourites"><button id="favourites-button"> Go to favourites</button></Link>
         </section>
       </section>
     </>

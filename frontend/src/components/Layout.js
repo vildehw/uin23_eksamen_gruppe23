@@ -31,19 +31,18 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
                 <h1 id="logo">GameHub23</h1>
             </Link>
             <nav>
-                <NavLink id="shop" className="nav-link" to="/gameshop">Shop</NavLink> 
-                <NavLink id="games" className="nav-link" to="/mygames">My games</NavLink>
-                <NavLink id="favourites" className="nav-link" to="/favourites">Favorites</NavLink> 
-                <NavLink id="wishlist" className="nav-link" to="/wishlist">Wishlist</NavLink> 
+                <NavLink id="shop" className="nav-link" to="/gameshop"><i className="bi bi-shop"></i> Shop</NavLink> 
+                <NavLink id="games" className="nav-link" to="/mygames"><i className="bi bi-house-door"></i> My games</NavLink>
+                <NavLink id="favourites" className="nav-link" to="/favourites"><i className="bi bi-heart"></i> Favorites</NavLink> 
             </nav>
             <div>
+            {user === "" ? null : <button id="sign-out" onClick={logOut}>SIGN OUT</button>}
             {user === "Ann-Charlott" || user === "Tore Marius" ?  <h3>{sanityUser?.username}</h3> : <Login user={user} setEmail={setEmail} email={email} login={login}/>}
             {user === "" ? <i id="icon" className="bi bi-person-circle"></i> : <img id="profile-img" alt="Profilbilde" src={user === "Ann-Charlott" ? AC : user === "Tore Marius" ? TM : ""}/>}
             </div>
         </header>  
         <main>
             <Outlet/>
-            {user === "" ? null : <button onClick={logOut}>SIGN OUT</button>}
         </main>
         <footer>
             <a href="https://rawg.io/apidocs" rel="noreferrer" target="_blank" >Games fetched with RAWG Video Games Database API (v1.0)</a>

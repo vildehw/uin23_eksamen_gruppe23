@@ -6,7 +6,7 @@ export default function MyGames({sanitygames}) {
   return(
     <>
     <h1 id="mygames">MY GAMES</h1> 
-    <section> 
+    <section id="games-section"> 
     <MyGameCard sanitygames={sanitygames} gamesAmount={10}/>
     </section>
     </>

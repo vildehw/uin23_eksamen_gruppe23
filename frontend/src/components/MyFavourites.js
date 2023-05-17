@@ -8,7 +8,7 @@ export default function MyFavourites({favourites, userFav}) {
   return(
     <>
     <h1 id="favourites">FAVOURITES</h1> 
-    <section>
+    <section id="games-section">
       <MyGameCard sanitygames={userFav} gamesAmount={10}/>
     </section> 
     </>

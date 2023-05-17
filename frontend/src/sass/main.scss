@@ -68,6 +68,23 @@ $maxsentencelength: 60rem;
 $gaps:              1.5rem;
 
 
+@mixin button {
+    background-color: rgb(56, 56, 56);
+    color: $white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem;
+    width: 130px;
+    justify-self: flex-end;
+    margin: 0 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 h1, h2, h3, h4 {
     margin: 0 0.3rem;
     padding: 0;
@@ -92,8 +109,8 @@ header {
     }
 
     .nav-link {
-        padding: $gaps;
-        color: $white;
+        padding: 0.5rem 0.2rem;
+        margin: 0.5rem 1rem;
         text-decoration: none;
         font-weight: bold;
         font-size: 1.5rem;
@@ -112,10 +129,6 @@ header {
         color: $green;
     }
 
-    #wishlist {
-        color: $dark-green;
-    }
-
     a {
         text-decoration: none;
     }
@@ -123,7 +136,6 @@ header {
     #logo {
         font-family: $logofont;
         color: $mainColor;
-        text-decoration: none;
     }
 
     div {
@@ -140,7 +152,7 @@ footer {
     flex-direction: row;
     width: 100%;
     padding: 1rem;
-   // position: fixed;
+    margin-top: 1rem;
     bottom: 0;
 
     a {
@@ -171,15 +183,16 @@ main {
     margin: 0.5rem;
 }
 
-#gameshop-window {
+#games-section {
     background-color: $white;
     display: flex;
     justify-content: space-around;
     width: 100%;
+    border-radius: 2rem;
 }
 
 .gamecard {
-    padding: $gaps 0;
+    padding: 1rem 0;
     display: flex;
     flex-direction: row;
 
@@ -194,40 +207,69 @@ main {
         display: flex;
         max-width: 200px;
         flex-direction: column;
-        justify-content: center;
-
+        justify-content: space-between;
     }
 
     img {
         max-width: 250px;
         height: auto;
+        border-radius: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    .gametitle {
+        margin-top: 1rem;
     }
 } 
 
-.button {
-    background-color: $black;
+.read-more {
+    background-color: $mainColor;
     color: $white;
     font-weight: bold;
     font-size: 1.2rem;
-    border-radius: 6px;
+    border-radius: 1rem;
     border: none;
-    padding: 0.5rem;
     width: 130px;
-    justify-self: flex-end;
-    margin: 0 0.5rem;
+    padding: 0.5rem 0.5rem;
+    margin: 3rem 0rem 1rem 0rem;
+    box-shadow: 0px 0px 20px rgb(230, 230, 230);
 
     &:hover {
         cursor: pointer;
-        background-color: $mainColor;
+        background-color: $black;
     }
 }
 
 #favourites-section {
     border-left: 2px solid $black;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 40%;
+    width: 100%;
+}
+
+#my-games-library {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    width: 100%;
+    
+    h2 {
+        width: 100%;
+    }
 }
 
 #my-games-section {
     margin-top: $gaps;
+    display: flex;
+    flex-direction: row;
 }
 
 #icon {
@@ -239,12 +281,10 @@ main {
 }
 
 #login-window {
-    //position: absolute;
-    //top: 15px;
-    //right: 90px;
-    background-color: $white;
+    background-color: white;
     padding: 0.5rem;
     border-radius: 1rem;
+    box-shadow: 0px 0px 20px rgb(230, 230, 230);
 
     #login-btn {
         background: $mainColor;
@@ -252,12 +292,13 @@ main {
         color: $white;
         font-weight: bold;
         border: none;
-        padding: 1rem 1rem;
+        padding: 0rem 1rem;
         font-size: 1rem;
-        box-shadow: 0px 5px 5px rgb(230, 230, 230);
+        box-shadow: 0px 4px 5px rgb(230, 230, 230);
 
         &:hover {
-            background: linear-gradient($mainColor, rgb(9, 48, 164));
+            //background: linear-gradient($mainColor, rgb(53, 96, 225));
+            background: rgb(63, 63, 63);
             cursor: pointer;
         }
     }
@@ -268,7 +309,7 @@ main {
         border-radius: 0.5rem;
         font-size: 1rem;
         border: none;
-        box-shadow: 0px 5px 5px rgb(230, 230, 230);
+        box-shadow: 0px 0px 10px rgb(230, 230, 230);
         width: 200px;
     }
 }
@@ -277,6 +318,13 @@ main {
     width: 60px;
     height: auto;
     border-radius: 2rem;
+}
+
+#shop, #games, #favourites {
+    &:hover {
+        transition: ease-in-out 0.2s;
+        border-bottom: 2px solid;
+    }
 }
 
 #gameshop {
@@ -291,11 +339,138 @@ main {
     color: $green;
 }
 
-#wishlist {
-    color: $dark-green;
-}
-
 #GPimg {
     max-width: 400px;
     height: auto;
+}
+
+#sign-out {
+    background-color: white;
+    color: rgb(143, 143, 143);
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 10px rgb(230, 230, 230);
+
+    &:hover {
+        cursor: pointer;
+        background-color: $mainColor;
+        color: white;
+    }
+}
+
+#shop-button {
+    @include button;
+
+     &:hover {
+        background-color: $pink;
+     }
+}
+
+#library-button {
+    @include button;
+
+     &:hover {
+        background-color: $orange;
+     }
+}
+
+#favourites-button {
+    @include button;
+
+     &:hover {
+        background-color: $green;
+     }
+}
+
+@media (max-width: 1285px) {
+    header {
+        margin: 1rem 0rem 3rem 1rem;
+        padding: 0;
+    }
+
+    main {
+        padding: 0rem 0.5rem 0rem 0.5rem;
+    }
+
+    #logo {
+        font-size: 2rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .gamecard{
+
+        img {
+            max-width: 160px;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}
+
+@media (max-width: 675px) {
+
+    #games-section {
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            max-width: 40vw;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+header {
+    margin: 1rem 0;
+
+    nav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-link {
+        width: 95vw;
+        margin: 0.1rem;
+        text-align: center;
+    }
+
+    #shop {
+        background-color: rgb(60, 60, 60);
+        color: $white;
+
+        &:hover {
+            background-color: $pink ;
+            border-bottom: none;
+        }
+    }
+
+    #games {
+        background-color: rgb(60, 60, 60);
+        color: $white;
+
+        &:hover {
+            background-color: $orange ;
+            border-bottom: none;
+        }
+    }
+
+    #favourites {
+        background-color: rgb(60, 60, 60);
+        color: $white;
+
+        &:hover {
+            background-color: $green;
+            border-bottom: none;
+        }
+    }
+ }
 }
