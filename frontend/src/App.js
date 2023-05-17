@@ -79,8 +79,8 @@ console.log(userFav)
       <Route element={<Layout user={user} setUser={setUser} email={email} setEmail={setEmail} sanityUser={sanityUser} setSanityUser={setSanityUser}/>}>
         <Route path='/' element={<Dashboard games={games} sanitygames={sanityUser ? userGames : sanitygames} userFav={userFav}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
-        <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames}/>}/>
-        <Route path='/favourites' element={<MyFavourites userFav={userFav}/>}/>  
+        <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames} user={user}/>}/>
+        <Route path='/favourites' element={<MyFavourites userFav={userFav} user={user}/>}/>  
         <Route path='/:slug' element={<GamePage games={games} sanitygames={sanitygames} sanityUser={sanityUser} setUserFav={setUserFav} userFav={userFav}/>}/>
       </Route>
     </Routes>

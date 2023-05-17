@@ -33,7 +33,7 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
             <nav>
                 <NavLink id="shop" className="nav-link" to="/gameshop"><i className="bi bi-shop"></i> Shop</NavLink> 
                 <NavLink id="games" className="nav-link" to="/mygames"><i className="bi bi-house-door"></i> My games</NavLink>
-                <NavLink id="favourites" className="nav-link" to="/favourites"><i className="bi bi-heart"></i> Favorites</NavLink> 
+                <NavLink id="favourites" className="nav-link" to="/favourites"><i className="bi bi-heart"></i> Favourites</NavLink> 
             </nav>
             <div>
             {user === "" ? null : <button id="sign-out" onClick={logOut}>SIGN OUT</button>}

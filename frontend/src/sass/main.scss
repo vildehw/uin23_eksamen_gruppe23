@@ -75,10 +75,9 @@ $gaps:              1.5rem;
     font-size: 1.2rem;
     border-radius: 1rem;
     border: none;
-    padding: 0.5rem;
-    width: 130px;
-    justify-self: flex-end;
-    margin: 0 0.5rem;
+    padding: 0.7rem;
+    width: fit-content;
+    margin-left: 0.5rem;
 
     &:hover {
         cursor: pointer;
@@ -86,7 +85,7 @@ $gaps:              1.5rem;
 }
 
 h1, h2, h3, h4 {
-    margin: 0 0.3rem;
+    margin: 0 0.5rem;
     padding: 0;
 }
 
@@ -189,25 +188,36 @@ main {
     justify-content: space-around;
     width: 100%;
     border-radius: 2rem;
+    padding: 0.5rem
 }
 
 .gamecard {
-    padding: 1rem 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
 
     .poster {
         background-color: $light-grey;
-        width: 210px;
-        height: auto;
+        width: 220px;
+        height: fit-content;
         margin: 1rem;
+        align-self: center;
+    }
+
+    .poster-mygames {
+        background-color: $light-grey;
+        width: 300px;
+        height: fit-content;
+        margin: 1rem;
+        align-self: center;
     }
 
     .game-info {
         display: flex;
-        max-width: 200px;
+        max-width: 250px;
+        width: 100%;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     img {
@@ -227,39 +237,42 @@ main {
     .gametitle {
         margin-top: 1rem;
     }
+
+    p {
+        padding: 0.2rem 0.5rem;
+        margin: 0;
+    }
 } 
 
 .read-more {
-    background-color: $mainColor;
-    color: $white;
+    background-color: $white;
+    color: grey;
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 1rem;
     border: none;
     width: 130px;
     padding: 0.5rem 0.5rem;
-    margin: 3rem 0rem 1rem 0rem;
+    margin: 1rem 0rem 0rem 0rem;
     box-shadow: 0px 0px 20px rgb(230, 230, 230);
 
     &:hover {
         cursor: pointer;
-        background-color: $black;
+        background-color: $mainColor;
+        color: $white;
     }
 }
 
 #favourites-section {
     border-left: 2px solid $black;
     display: flex;
-    flex-wrap: wrap;
-    max-width: 40%;
-    width: 100%;
+    flex-direction: column;
+    padding-left: 1rem;
 }
 
 #my-games-library {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 50%;
-    width: 100%;
+    flex-direction: column;
     
     h2 {
         width: 100%;
@@ -267,7 +280,7 @@ main {
 }
 
 #my-games-section {
-    margin-top: $gaps;
+    margin: 4rem 0 2rem 0;
     display: flex;
     flex-direction: row;
 }
@@ -335,7 +348,7 @@ main {
     color: $orange;
 }
 
-#favourites {
+#favourites-h {
     color: $green;
 }
 
@@ -371,6 +384,7 @@ main {
 
 #library-button {
     @include button;
+    width: 140px;
 
      &:hover {
         background-color: $orange;
@@ -383,6 +397,15 @@ main {
      &:hover {
         background-color: $green;
      }
+}
+
+.message {
+    font-weight: bold;
+}
+
+i {
+    font-size: 2rem;
+    text-align: center;
 }
 
 @media (max-width: 1285px) {
@@ -415,7 +438,26 @@ main {
 
 }
 
+@media (max-width: 1050px) {
+    #favourites-section {
+        border: none;
+    }
+
+    .section-headline {
+        flex-direction: column;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 675px) {
+    header {
+        .nav-link {
+            margin: 0.5rem 0.2rem;
+        }
+    }
 
     #games-section {
         flex-direction: column;
@@ -426,11 +468,24 @@ main {
             height: auto;
         }
     }
+
+    i {
+        font-size: 1.5rem;
+    }
+
+    #login-window {
+        display: flex;
+        flex-direction: column;
+
+        #login-btn {
+            padding: 1rem;
+        }
+    }
 }
 
 @media (max-width: 450px) {
 header {
-    margin: 1rem 0;
+    margin: 1rem 0 3rem 0;
 
     nav{
         display: flex;

@@ -60,7 +60,7 @@ const getGameInfo = async(i) => {
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    {sanityUser && selectedSanityGame ? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
+    {sanityUser && selectedSanityGame? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
     <article>
     {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     }
