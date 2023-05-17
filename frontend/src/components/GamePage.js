@@ -32,6 +32,7 @@ const getGameInfo = async(i) => {
    !userFav.includes(selectedSanityGame) ? setUserFav(prev => [...prev, selectedSanityGame]) : console.log("denne er allerede favoritt")
   }   
   
+  console.log(sanityUser)
   console.log(selectedSanityGame)
  
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
@@ -43,6 +44,23 @@ const getGameInfo = async(i) => {
  } 
  // kilder: https://madox2.github.io/react-tagcloud/ & https://github.com/davidmerfield/randomColor
   
+
+ const favourites = sanityUser?.favourites
+ const favouritesId = []
+
+ const [isFavourite, setIsFavourite] = useState(false)
+
+ function checkFavourite() {
+  favourites?.map((f) => (favouritesId.push(f.api_id)))
+  setIsFavourite(favouritesId?.includes(selectedSanityGame?.api_id))
+  console.log(isFavourite)
+ }
+
+ useEffect(() => (
+  checkFavourite()
+ ), [selectedSanityGame])
+
+
   return(
     <>  
     <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
@@ -60,7 +78,7 @@ const getGameInfo = async(i) => {
     <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li>{p.platform.name}</li>)}</ul>  
     <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li>{s.store.name}</li>)}</ul> 
     {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    {sanityUser && selectedSanityGame? <button className="button" onClick={addFavourite}>add to favorites</button> : null }
+    {sanityUser && selectedSanityGame && isFavourite? null : <button className="button" onClick={addFavourite}>add to favorites</button>}
     <article>
     {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
     }
@@ -70,3 +88,6 @@ const getGameInfo = async(i) => {
     
   )
 } 
+
+
+// sanityUser.favourites.some(selectedSanityGame)

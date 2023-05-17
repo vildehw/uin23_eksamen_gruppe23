@@ -10,7 +10,7 @@ export default function MyGames({sanitygames, user}) {
           <section id="games-section"> 
           <MyGameCard sanitygames={sanitygames} gamesAmount={10}/>
           </section> : 
-          <p className="message">Sign in to view your games</p>
+          <p className="message">Log in to view your games</p>
     } 
 
     </>

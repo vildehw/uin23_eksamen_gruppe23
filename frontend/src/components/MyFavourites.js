@@ -12,7 +12,7 @@ export default function MyFavourites({favourites, userFav, user}) {
         <section id="games-section">
         <MyGameCard sanitygames={userFav} gamesAmount={10}/>
       </section> :
-      <p className="message">Sign in to view your favourites</p>
+      <p className="message">Log in to view your favourites</p>
     }
     </>
   )
