@@ -68,12 +68,16 @@ useEffect(() => {
   setUserFav(userFavourites)
   }, [sanityUser])   
 
-const userGames = sanityUser.games
+const userGames = sanityUser ? sanityUser.mygames :null
+
+console.log(sanityUser) 
+console.log(userGames) 
+console.log(userFav)
 
   return (
     <Routes> 
       <Route element={<Layout user={user} setUser={setUser} email={email} setEmail={setEmail} sanityUser={sanityUser} setSanityUser={setSanityUser}/>}>
-        <Route path='/' element={<Dashboard games={games} sanitygames={sanitygames} userFav={userFav}/>}/>
+        <Route path='/' element={<Dashboard games={games} sanitygames={sanityUser ? userGames : sanitygames} userFav={userFav}/>}/>
         <Route path='/gameshop' element={<GameShop games={games} />}/>
         <Route path='/mygames' element={<MyGames sanitygames={sanityUser ? userGames : sanitygames}/>}/>
         <Route path='/favourites' element={<MyFavourites userFav={userFav}/>}/>  

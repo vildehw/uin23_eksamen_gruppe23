@@ -7,7 +7,8 @@ export const fetchAllGames = async () => {
         api_id, 
         playtime, 
         slug, 
-        genre[]->{genre_title}, 
+        genre[]->{genre_title},  
+        image_url
     }`) 
     return data
 }  
