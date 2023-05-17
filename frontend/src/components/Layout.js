@@ -7,6 +7,8 @@ import TM from "../logos/TM.png";
 
 export default function Layout ({user, setUser, email, setEmail, setSanityUser, sanityUser}){
 
+    // Funksjon som sjekker om mail i inputfelt stemmer overens med brukerens email
+
     function login() {
         if (email === "ann.c.karlsen@hiof.no"){
             setUser("Ann-Charlott")
@@ -14,11 +16,14 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
             setUser("Tore Marius")
         } else {console.log("feil epost")}
     } 
-    
+
     useEffect(() => {
     login()
     }, [email])    
     
+    /* Funksjon som logger ut bruker. Dersom en bruker er pålogget vil user og sanityUser 
+    * bli satt til (""). Kjøres ved klikk på "sign out"
+    */
     function logOut(){
        if(user){setUser("") 
         setSanityUser("")}

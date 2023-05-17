@@ -15,8 +15,8 @@ export default function GameCard({games, gamesAmount}) {
     <img src={game.background_image} alt={game.name + " poster"} className="poster" />
     <div className="game-info">
       <div className="gametitle">
-        <h3>{game.name}</h3>
-        {game.genres.map((g) => (<h4>{g.name}</h4>))}
+        <h3 >{game.name}</h3>
+        {game.genres.map((g) => (<h4 key={`h4${index}`}>{g.name}</h4>))}
       </div>
       <button className="read-more" onClick={() => (handleClick(`../${game.slug}`))}>Read more</button>
     </div>

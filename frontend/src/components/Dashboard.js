@@ -17,8 +17,6 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, u
   useEffect(() => {
     getGameCount()
   }, [])  
-
-  console.log(sanityUser)
   
   return(
     <>

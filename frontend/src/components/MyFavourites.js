@@ -2,9 +2,6 @@ import MyGameCard from "./MyGameCard"
 
 export default function MyFavourites({favourites, userFav, user}) { 
 
-  console.log(favourites) 
-  console.log(userFav)
-
   return(
     <>
     <h1 id="favourites-h">FAVOURITES</h1> 

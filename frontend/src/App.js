@@ -51,7 +51,7 @@ const [email, setEmail] = useState("")
 const [sanityUser, setSanityUser] = useState("")
 
 const getSanityUsers = async () => {
-const data = await fetchAllUsers()   
+const data = await fetchAllUsers()  
 data.map((d) => (d.username === user? setSanityUser(d) : null ))
 }  
 
