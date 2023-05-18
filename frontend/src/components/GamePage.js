@@ -89,8 +89,8 @@ const getGameInfo = async(id) => {
   <h5>Plot:</h5> <p id="gameplot">{gameInfo?.description_raw}</p> 
   <h5>Tags:</h5>
   <section id="tagcloud">
-    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
-    }
+    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    
   </section>
  
   <div id="grid-container-2"> 
