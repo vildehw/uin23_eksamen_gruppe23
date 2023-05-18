@@ -91,8 +91,6 @@ const getGameInfo = async(id) => {
   <section id="tagcloud">
     {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
   </section>
-  {//<h5>Tags:</h5><ul className="GPlist">{gameInfo?.tags?.map((t,i) => <li key={`tag${i}`}>{t.name}</li>)}</ul> 
-  }
  
   <div id="grid-container-2"> 
     <h5>Release:</h5> <p>{gameInfo?.released}</p>  
@@ -105,6 +103,4 @@ const getGameInfo = async(id) => {
   </> 
   
 )
-
-
 } 

@@ -16,7 +16,7 @@ export default function GameCard({games, gamesAmount}) {
     <div className="game-info">
       <div className="gametitle">
         <h3 >{game.name}</h3>
-        {game.genres.map((g) => (<h4 key={`h4${index}`}>{g.name}</h4>))}
+        {game.genres.map((g, index) => (<h4 key={`h4${index}`}>{g.name}</h4>))}
       </div>
       <button className="read-more" onClick={() => (handleClick(`../${game.slug}`))}>Read more</button>
     </div>
