@@ -91,7 +91,7 @@ const getGameInfo = async(id) => {
   </div> 
   <div id="btns">
  
-  {sanityUser && selectedSanityGame && isFavourite? null : <button id="fav-btn" onClick={addFavourite}>Add to favorites</button>}  
+  {sanityUser && selectedSanityGame && !isFavourite? <button id="fav-btn" onClick={addFavourite}>Add to favorites</button> : null }  
   {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button id="buy-btn">Buy</button></a>}
   </div>  
 
