@@ -14,7 +14,7 @@ export default {
             title: 'URL-tittel', 
             options: {
                 source: 'game_title', 
-                slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,150)
+                slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,150) 
             }
         },
         {
@@ -42,4 +42,4 @@ export default {
             title: 'Bilde URL'
           }
     ]
-}
+} //kilde: kode fra forelesning 17.03
