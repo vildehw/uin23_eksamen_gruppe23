@@ -131,17 +131,17 @@ main {
 }
 .gamecard .poster {
   background-color: #f3f3f3;
-  width: 220px;
   height: fit-content;
   margin: 1rem;
   align-self: center;
+  width: 220px;
 }
 .gamecard .poster-mygames {
   background-color: #f3f3f3;
-  width: 300px;
   height: fit-content;
   margin: 1rem;
   align-self: center;
+  width: 300px;
 }
 .gamecard .game-info {
   display: flex;
@@ -171,7 +171,7 @@ main {
 
 .read-more {
   background-color: #ffffff;
-  color: grey;
+  color: #808080;
   font-weight: bold;
   font-size: 1.2rem;
   border-radius: 1rem;
@@ -230,10 +230,10 @@ main {
   border: none;
   padding: 0rem 1rem;
   font-size: 1rem;
-  box-shadow: 0px 4px 5px rgb(230, 230, 230);
+  box-shadow: 0px 0px 20px rgb(230, 230, 230);
 }
 #login-window #login-btn:hover {
-  background: rgb(63, 63, 63);
+  background: #232323;
   cursor: pointer;
 }
 #login-window #email-input {
@@ -242,7 +242,7 @@ main {
   border-radius: 0.5rem;
   font-size: 1rem;
   border: none;
-  box-shadow: 0px 0px 10px rgb(230, 230, 230);
+  box-shadow: 0px 0px 20px rgb(230, 230, 230);
   width: 200px;
 }
 
@@ -275,23 +275,23 @@ main {
 }
 
 #sign-out {
-  background-color: white;
-  color: rgb(143, 143, 143);
+  background-color: #ffffff;
+  color: #808080;
   border: none;
   font-size: 1rem;
   font-weight: bold;
   padding: 0.7rem;
   border-radius: 1rem;
-  box-shadow: 0px 4px 10px rgb(230, 230, 230);
+  box-shadow: 0px 0px 20px rgb(230, 230, 230);
 }
 #sign-out:hover {
   cursor: pointer;
   background-color: rgb(72, 192, 244);
-  color: white;
+  color: #ffffff;
 }
 
 #shop-button {
-  background-color: rgb(56, 56, 56);
+  background-color: #232323;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -309,7 +309,7 @@ main {
 }
 
 #library-button {
-  background-color: rgb(56, 56, 56);
+  background-color: #232323;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -328,7 +328,7 @@ main {
 }
 
 #favourites-button {
-  background-color: rgb(56, 56, 56);
+  background-color: #232323;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -356,7 +356,7 @@ i {
 
 .go-top {
   background-color: #ffffff;
-  color: grey;
+  color: #808080;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;

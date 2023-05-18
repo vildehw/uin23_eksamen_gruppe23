@@ -52,11 +52,12 @@ $white:         #ffffff;
 $light-grey:    #f3f3f3;
 $dark-grey:     #232323;
 
+// Farger vi har valgt 
 $mainColor: rgb(72, 192, 244);
 $pink: rgb(242, 91, 116);
 $orange: rgb(235, 153, 0);
 $green: rgb(82, 192, 46);
-$dark-green: rgb(29, 143, 97);
+$grey: #808080;
 
 $warning: $orange;
 $success: $green;
@@ -67,9 +68,11 @@ $maxwidth:          1200px;
 $maxsentencelength: 60rem;
 $gaps:              1.5rem;
 
+$box-shadow: 0px 0px 20px rgb(230, 230, 230);
+
 
 @mixin button {
-    background-color: rgb(56, 56, 56);
+    background-color: $dark-grey;
     color: $white;
     font-weight: bold;
     font-size: 1.2rem;
@@ -84,11 +87,17 @@ $gaps:              1.5rem;
     }
 }
 
+@mixin poster {
+    background-color: $light-grey;
+    height: fit-content;
+    margin: 1rem;
+    align-self: center;
+}
+
 h1, h2, h3, h4 {
     margin: 0 0.5rem;
     padding: 0;
 }
-
 
 body {
     background-color: $light-grey;
@@ -114,7 +123,6 @@ header {
         font-weight: bold;
         font-size: 1.5rem;
     }
-
 
     #shop {
         color: $pink;
@@ -197,19 +205,13 @@ main {
     flex-direction: row;
 
     .poster {
-        background-color: $light-grey;
+        @include poster;
         width: 220px;
-        height: fit-content;
-        margin: 1rem;
-        align-self: center;
     }
 
     .poster-mygames {
-        background-color: $light-grey;
+        @include poster;
         width: 300px;
-        height: fit-content;
-        margin: 1rem;
-        align-self: center;
     }
 
     .game-info {
@@ -246,7 +248,7 @@ main {
 
 .read-more {
     background-color: $white;
-    color: grey;
+    color: $grey;
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 1rem;
@@ -254,7 +256,7 @@ main {
     width: 130px;
     padding: 0.5rem 0.5rem;
     margin: 1rem 0rem 0rem 0rem;
-    box-shadow: 0px 0px 20px rgb(230, 230, 230);
+    box-shadow: $box-shadow;
 
     &:hover {
         cursor: pointer;
@@ -297,7 +299,7 @@ main {
     background-color: white;
     padding: 0.5rem;
     border-radius: 1rem;
-    box-shadow: 0px 0px 20px rgb(230, 230, 230);
+    box-shadow: $box-shadow;
 
     #login-btn {
         background: $mainColor;
@@ -307,11 +309,10 @@ main {
         border: none;
         padding: 0rem 1rem;
         font-size: 1rem;
-        box-shadow: 0px 4px 5px rgb(230, 230, 230);
+        box-shadow: $box-shadow;
 
         &:hover {
-            //background: linear-gradient($mainColor, rgb(53, 96, 225));
-            background: rgb(63, 63, 63);
+            background: $dark-grey;
             cursor: pointer;
         }
     }
@@ -322,7 +323,7 @@ main {
         border-radius: 0.5rem;
         font-size: 1rem;
         border: none;
-        box-shadow: 0px 0px 10px rgb(230, 230, 230);
+        box-shadow: $box-shadow;
         width: 200px;
     }
 }
@@ -358,19 +359,19 @@ main {
 }
 
 #sign-out {
-    background-color: white;
-    color: rgb(143, 143, 143);
+    background-color: $white;
+    color: $grey;
     border: none;
     font-size: 1rem;
     font-weight: bold;
     padding: 0.7rem;
     border-radius: 1rem;
-    box-shadow: 0px 4px 10px rgb(230, 230, 230);
+    box-shadow: $box-shadow;
 
     &:hover {
         cursor: pointer;
         background-color: $mainColor;
-        color: white;
+        color: $white;
     }
 }
 
@@ -410,7 +411,7 @@ i {
 
 .go-top {
     background-color: $white;
-    color: grey;
+    color:$grey;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
