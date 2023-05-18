@@ -65,30 +65,45 @@ const getGameInfo = async(id) => {
  ), [selectedSanityGame])
 
 
-  return(
-    <>  
-    <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>   
-    <section>
-    <img id="GPimg" src={gameInfo?.background_image} alt={selectedGame?.name}></img>   
-    {selectedSanityGame ? <p>Played: {selectedSanityGame?.playtime} hours</p> : null } 
-    <p>Genres: </p> <ul>{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li key={`genre${i}`}>{g.genre_title}</li>) : selectedGame?.genres?.map((g,i) => <li key={`genre${i}`}>{g.name}</li>)}</ul>
+ return(
+  <>  
+   
+  <section id="gamepage-section"> 
+  <h2>{selectedGame? selectedGame?.name : selectedSanityGame?.game_title}</h2>  
+  <img src={gameInfo?.background_image} alt={selectedGame?.name}></img>  
+  
+  
+  <div id="grid-container-1">
+  {selectedSanityGame ? <><h5>Played:</h5><p>{selectedSanityGame?.playtime} hours</p></> : null } 
+  <h5>Genres:</h5> <ul className="GPlist">{selectedSanityGame ? selectedSanityGame?.genre.map((g,i) => <li key={`genre${i}`}>{g.genre_title}</li>) : selectedGame?.genres?.map((g,i) => <li key={`genre${i}`}>{g.name}</li>)}</ul>
+  <h5>Rating:</h5><p id="rating">{gameInfo?.rating}</p>   
+  </div> 
     
-    <p>Rating: {gameInfo?.rating}</p>   
-    <p>Plot: {gameInfo?.description_raw}</p> 
-    <p>Tags:</p> <ul>{gameInfo?.tags?.map((t,i) => <li key={`tag${i}`}>{t.name}</li>)}</ul>
-    <p>Developers:</p> <ul>{gameInfo?.developers?.map((d,i) => <li key={`developer${i}`}>{d.name}</li>)}</ul> 
-    <p>Publisher:</p> <ul>{gameInfo?.publishers?.map((p,i) => <li key={`publisher${i}`}>{p.name}</li>)}</ul> 
-    <p>Release: {gameInfo?.released}</p> 
-    <p>Platforms:</p><ul>{gameInfo?.platforms?.map((p,i) => <li key={`platform${i}`}>{p.platform.name}</li>)}</ul>  
-    <p>Stores:</p> <ul>{gameInfo?.stores?.map((s,i) => <li key={`store${i}`}>{s.store.name}</li>)}</ul> 
-    {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button>Buy</button></a>}
-    {sanityUser && selectedSanityGame && isFavourite? null : <button className="button" onClick={addFavourite}>add to favorites</button>}
-    <article>
-    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
-    }
-    </article>
-    </section>
-    </> 
-    
-  )
+  <h5>Plot:</h5> <p id="gameplot">{gameInfo?.description_raw}</p> 
+  <h5>Tags:</h5><ul className="GPlist">{gameInfo?.tags?.map((t,i) => <li key={`tag${i}`}>{t.name}</li>)}</ul> 
+ 
+  <div id="grid-container-2"> 
+  <h5>Release:</h5> <p>{gameInfo?.released}</p>  
+  <h5>Developers:</h5> <ul>{gameInfo?.developers?.map((d,i) => <li key={`developer${i}`}>{d.name}</li>)}</ul> 
+  <h5>Publisher:</h5> <ul>{gameInfo?.publishers?.map((p,i) => <li key={`publisher${i}`}>{p.name}</li>)}</ul> 
+  <h5>Platforms:</h5><ul>{gameInfo?.platforms?.map((p,i) => <li key={`platform${i}`}>{p.platform.name}</li>)}</ul>  
+  <h5>Stores:</h5> <ul >{gameInfo?.stores?.map((s,i) => <li key={`store${i}`}>{s.store.name}</li>)}</ul>  
+  </div> 
+  <div id="btns">
+ 
+  {sanityUser && selectedSanityGame && isFavourite? null : <button id="fav-btn" onClick={addFavourite}>Add to favorites</button>}  
+  {selectedSanityGame ? null : <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><button id="buy-btn">Buy</button></a>}
+  </div>  
+
+   
+  <section>
+  {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+  }
+  </section>
+  </section>
+  </> 
+  
+)
+
+
 } 

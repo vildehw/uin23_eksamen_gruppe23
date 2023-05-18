@@ -355,10 +355,7 @@ main {
     color: $green;
 }
 
-#GPimg {
-    max-width: 400px;
-    height: auto;
-}
+
 
 #sign-out {
     background-color: $white;
@@ -427,7 +424,113 @@ i {
         color: $white;
         transition: ease-in-out 0.2s;
     }
+} 
+
+#gamepage-section{
+    width: 100%;  
+    max-width: 800px;  
+    display: flex;  
+    margin: 1rem auto; 
+    background-color: $white; 
+    border-radius: 0.5rem; 
+    padding: 2rem; 
+    h2{ 
+        width: 100%;   
+        margin: .5rem auto ;
+        text-align: center;
+    } 
+    img{ 
+        width: 65%;
+        max-width: 500px; 
+        padding: 1rem, 2rem; 
+        border-radius: 0.5rem;
+    } 
+    #grid-container-1{ 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr);  
+        width: 30%;   
+        height: auto;
+    }   
+    #rating{
+        border: 2px solid $orange;
+        width: 45px ;  
+        height: 25px;  
+        font-size: 20px; 
+        padding: 7px 15px; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        background-color: $orange; 
+        background-color: rgba($color: $orange, $alpha: 0.5); 
+        border-radius: 0.5rem;
+    }
+    #grid-container-2{
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr);
+        width: 45%;  
+    } 
+    #btns{ 
+        display: grid;
+        grid-template-columns: repeat(3,1fr); 
+        gap: 1rem; 
+        
+        #fav-btn{
+            background-color: $green;
+        } 
+        #buy-btn{
+            background: $mainColor;
+        }
+        #fav-btn, #buy-btn{
+            border: none;
+            width: 7rem; 
+            height: 4rem;
+            border-radius: 2rem;
+            color: $white;
+            font-size: 1.2rem; 
+            font-weight: bold;
+            box-shadow: 0px 4px 5px rgb(230, 230, 230);  
+            
+            &:hover {
+                background: rgb(63, 63, 63);
+                cursor: pointer;
+            } 
+        }  
+        
+       
+    }
+    h5{ 
+        font-size: 1.2rem; 
+        margin: 1rem; 
+        width: 100%;
+    }  
+    #gameplot{
+        padding: 0 1rem; 
+        line-height: 1.5;
+    } 
+    .GPlist { 
+        list-style: none; 
+        display: flex; 
+        flex-wrap: wrap;
+        height: auto;
+        li{
+            border: 1.5px solid $mainColor;  
+            border-radius: 0.5rem;
+            width: auto;  
+            display: flex;
+            flex-wrap: wrap;  
+            flex-direction: row;
+            padding: 3px 15px; 
+            margin: .5rem;  
+            max-height: 1.7rem;  
+        } 
+    } 
+    ul{ 
+        list-style: none;  
+        padding: 0; 
+    } 
 }
+
+
 
 @media (max-width: 1285px) {
     header {
@@ -471,7 +574,27 @@ i {
     h2 {
         margin-bottom: 1rem;
     }
+} 
+
+@media (max-width: 800px) { 
+    #gamepage-section{ 
+        
+        img{
+            width: 100%;  
+            max-width: 600px;
+            margin: 0 auto;
+        } 
+        #grid-container-1, #grid-container-2 {
+            width: 100%;   
+            margin: 0 auto;
+            grid-template-columns: 1fr 2fr;   
+        }    
+        #gameplot{
+            padding-left: 2rem;
+        }   
+    }
 }
+
 
 @media (max-width: 675px) {
     header {
@@ -502,7 +625,19 @@ i {
             padding: 1rem;
         }
     }
+} 
+
+@media (max-width: 550px) { 
+    #gamepage-section{
+        padding: .5rem;
+    }
+    #gid-container-1, #grid-container-2{
+        grid-template-columns: 1fr 1fr; 
+        width: 100%; 
+    }
 }
+
+
 
 @media (max-width: 450px) {
 header {
