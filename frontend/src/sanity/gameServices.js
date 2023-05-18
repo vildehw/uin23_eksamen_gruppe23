@@ -12,12 +12,13 @@ export const fetchAllGames = async () => {
     }`) 
     return data
 }  
-
+//kilde for å hente array med nøkler: https://www.sanity.io/docs/query-cheat-sheet
 
 export const fetchGameCount = async () => {
     const data = await client.fetch(`count(*[_type == "games"])`) 
     return data
-} 
+}  
+//kilde for groq-count: https://www.sanity.io/docs/query-cheat-sheet
 
 
 

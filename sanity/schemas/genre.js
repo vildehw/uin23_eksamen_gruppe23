@@ -19,4 +19,4 @@ export default {
         },
         
     ]
-}
+}//kilde: kode fra forelesning 17.03

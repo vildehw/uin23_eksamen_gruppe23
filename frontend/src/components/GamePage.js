@@ -14,6 +14,7 @@ export default function GamePage({games, sanitygames, sanityUser, setUserFav, us
 
   let id = '' ;
 
+  //setter verdien til id, basert på om valgt spill er fra sanity eller api
   !selectedSanityGame ? id = apiId : id = sanityId
 
 const [gameInfo, setGameInfo] = useState([]) 
@@ -29,6 +30,7 @@ const getGameInfo = async(id) => {
     getGameInfo(id) 
   },[selectedGame, selectedSanityGame])   
   
+  //legger spill til array med brukerens favoritter
   const addFavourite = () => {   
    !userFav.includes(selectedSanityGame) ? setUserFav(prev => [...prev, selectedSanityGame]) : console.log("denne er allerede favoritt")
   }   
@@ -36,6 +38,7 @@ const getGameInfo = async(id) => {
   console.log(sanityUser)
   console.log(selectedSanityGame)
  
+// kode for verdier brukt i Tagcloud
  const gameTags = gameInfo?.tags?.map((t) => ({ value: t.name, count: t.games_count })) 
  console.log(gameTags)
 

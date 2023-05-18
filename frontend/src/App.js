@@ -50,6 +50,7 @@ const [user, setUser] = useState("")
 const [email, setEmail] = useState("")
 const [sanityUser, setSanityUser] = useState("")
 
+//henter data om brukere og setter sanityUser dersom denne er lik user som er basert på login funksjon
 const getSanityUsers = async () => {
 const data = await fetchAllUsers()  
 data.map((d) => (d.username === user? setSanityUser(d) : null ))
@@ -61,6 +62,7 @@ getSanityUsers()
 
 const [userFav, setUserFav] = useState([])
 
+//lager en array med brukerens favoritter
 useEffect(() => {
   const userFavourites = sanityUser.favourites 
   setUserFav(userFavourites)
