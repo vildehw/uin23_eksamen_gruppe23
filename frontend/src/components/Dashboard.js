@@ -38,7 +38,7 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, u
         <section id="favourites-section">
           <div className="section-headline">
             <h2><i className="bi bi-heart"></i> MY FAVOURITES</h2>
-            <Link to="/favourites"><button id="favourites-button"> Go to favourites</button></Link>
+            <Link to="/favourites"><button className="favourites-button"> Go to favourites</button></Link>
           </div> 
           {user ? null : <p className="message">Log in to view your favourites</p>}
           <MyGameCard sanitygames={userFav} gamesAmount={6}/>  

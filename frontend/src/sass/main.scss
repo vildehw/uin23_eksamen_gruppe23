@@ -76,7 +76,7 @@ $box-shadow: 0px 0px 20px rgb(230, 230, 230);
     color: $white;
     font-weight: bold;
     font-size: 1.2rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     border: none;
     padding: 0.7rem;
     width: fit-content;
@@ -253,7 +253,7 @@ main {
     color: $grey;
     font-weight: bold;
     font-size: 1.2rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     border: none;
     width: 130px;
     padding: 0.5rem 0.5rem;
@@ -364,7 +364,7 @@ main {
     font-size: 1rem;
     font-weight: bold;
     padding: 0.7rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     box-shadow: $box-shadow;
 
     &:hover {
@@ -391,7 +391,7 @@ main {
      }
 }
 
-#favourites-button {
+.favourites-button {
     @include button;
 
      &:hover {
@@ -414,7 +414,7 @@ i {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 2rem;
     padding: 0.5rem 1rem;
     margin: 1rem;
     box-shadow: $box-shadow;
@@ -432,11 +432,13 @@ i {
     display: flex;  
     margin: 1rem auto; 
     background-color: $white; 
-    border-radius: 0.5rem; 
+    border-radius: 2rem; 
     padding: 2rem; 
+    position: relative;
+
     h2{ 
         width: 100%;   
-        margin: .5rem auto ;
+        margin: 0.5rem auto 1rem auto;
         text-align: center;
     } 
     img{ 
@@ -450,7 +452,22 @@ i {
         grid-template-columns: repeat(2, 1fr);  
         width: 30%;   
         height: auto;
+        text-align: center;
+        
+        h5, p {
+            margin: 0;
+            align-self: center;
+        }
+
+        #genres {
+            align-self: baseline;
+        }
+
+        #playtime {
+            justify-self: baseline;
+        }
     }   
+
     #rating{
         border: 2px solid $orange;
         width: 45px ;  
@@ -470,10 +487,10 @@ i {
         width: 45%;  
     } 
     #btns{ 
-        display: grid;
-        grid-template-columns: repeat(3,1fr); 
-        gap: 1rem; 
-        
+        position:absolute;
+        top: 30px;
+        right: 30px;
+
         #fav-btn{
             background-color: $green;
         } 
@@ -482,8 +499,7 @@ i {
         }
         #fav-btn, #buy-btn{
             border: none;
-            width: 7rem; 
-            height: 4rem;
+            padding: 1rem;
             border-radius: 2rem;
             color: $white;
             font-size: 1.2rem; 
@@ -500,18 +516,21 @@ i {
     }
     h5{ 
         font-size: 1.2rem; 
-        margin: 1rem; 
+        margin: 1rem 1rem 0rem 1rem; 
         width: 100%;
     }  
     #gameplot{
         padding: 0 1rem; 
         line-height: 1.5;
+        margin: 0;
     } 
     .GPlist { 
         list-style: none; 
-        display: flex; 
-        flex-wrap: wrap;
+        //display: flex; 
+        //flex-wrap: wrap;
         height: auto;
+        margin: 0;
+
         li{
             border: 1.5px solid $mainColor;  
             border-radius: 0.5rem;
@@ -520,14 +539,20 @@ i {
             flex-wrap: wrap;  
             flex-direction: row;
             padding: 3px 15px; 
-            margin: .5rem;  
+            margin: 0.5rem; 
+            margin-left: 0; 
             max-height: 1.7rem;  
+            width: fit-content;
         } 
     } 
     ul{ 
         list-style: none;  
         padding: 0; 
     } 
+}
+
+#tagcloud {
+    margin: 0 1rem;
 }
 
 
@@ -625,6 +650,18 @@ i {
             padding: 1rem;
         }
     }
+
+    #gamepage-section{
+        h2 {
+         text-align: start;
+         margin: 1rem;
+        }
+
+        #btns {
+            top: 35px;
+            right: 10px;
+        }
+    }
 } 
 
 @media (max-width: 550px) { 
@@ -634,6 +671,13 @@ i {
     #gid-container-1, #grid-container-2{
         grid-template-columns: 1fr 1fr; 
         width: 100%; 
+    }
+
+    #gamepage-section{
+        #btns {
+            top: 15px;
+            right: 10px;
+        }
     }
 }
 
