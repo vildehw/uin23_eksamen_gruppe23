@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css'; 
 import Dashboard from './components/Dashboard';
 import GameShop from './components/GameShop';
 import MyFavourites from './components/MyFavourites';
