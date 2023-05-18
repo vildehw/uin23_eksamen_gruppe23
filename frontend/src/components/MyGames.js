@@ -12,7 +12,7 @@ export default function MyGames({sanitygames, user}) {
           </section> : 
           <p className="message">Log in to view your games</p>
     } 
-
+    <a href="#header" className="go-top">Go to top</a>
     </>
   )
 }

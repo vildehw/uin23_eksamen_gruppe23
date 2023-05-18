@@ -44,6 +44,7 @@ export default function Dashboard({games, sanitygames, favourites, sanityUser, u
           <MyGameCard sanitygames={userFav} gamesAmount={6}/>  
         </section>
       </section>
+      <a href="#header" className="go-top">Go to top</a>
     </>
   )
 }

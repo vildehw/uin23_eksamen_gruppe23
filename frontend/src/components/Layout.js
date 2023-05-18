@@ -31,7 +31,7 @@ export default function Layout ({user, setUser, email, setEmail, setSanityUser, 
 
     return (
         <>
-        <header> 
+        <header id="header"> 
             <Link to="/">
                 <h1 id="logo">GameHub23</h1>
             </Link>

@@ -11,6 +11,7 @@ export default function MyFavourites({favourites, userFav, user}) {
       </section> :
       <p className="message">Log in to view your favourites</p>
     }
+    <a href="#header" className="go-top">Go to top</a>
     </>
   )
 }

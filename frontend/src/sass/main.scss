@@ -408,6 +408,23 @@ i {
     text-align: center;
 }
 
+.go-top {
+    background-color: $white;
+    color: grey;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+
+    &:hover {
+        background-color: $mainColor;
+        color: $white;
+        transition: ease-in-out 0.2s;
+    }
+}
+
 @media (max-width: 1285px) {
     header {
         margin: 1rem 0rem 3rem 1rem;
