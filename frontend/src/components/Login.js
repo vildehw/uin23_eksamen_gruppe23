@@ -1,5 +1,6 @@
 export default function Login({setEmail, login, user}) {
 
+  // Funksjon som setter staten email til verdien av email-input feltet, så vi kan sjekke om mailen stemmer overens med en bruker
   function handleClick(){
     setEmail(document.getElementById("email-input").value)
     login()

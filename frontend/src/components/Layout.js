@@ -8,7 +8,6 @@ import TM from "../logos/TM.png";
 export default function Layout ({user, setUser, email, setEmail, setSanityUser, sanityUser}){
 
     // Funksjon som sjekker om mail i inputfelt stemmer overens med brukerens email
-
     function login() {
         if (email === "ann.c.karlsen@hiof.no"){
             setUser("Ann-Charlott")
