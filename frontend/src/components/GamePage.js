@@ -21,7 +21,7 @@ const [gameInfo, setGameInfo] = useState([])
 
 //Henter info om et spesifikt spill basert på id. 
 const getGameInfo = async(id) => {
-  const response = await fetch (`https://api.rawg.io/api/games/${id}?key=880241c0a7e24864aef2b9d1687af70d`)
+  const response = await fetch (`https://api.rawg.io/api/games/${id}?key=1f72eed5f95849c9ace258ea29ce3390`)
   const data = await response.json()
   setGameInfo(data) 
 }
@@ -89,7 +89,8 @@ const getGameInfo = async(id) => {
   <h5>Plot:</h5> <p id="gameplot">{gameInfo?.description_raw}</p> 
   <h5>Tags:</h5>
   <section id="tagcloud">
-    {gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    {//{gameTags ? <TagCloud minSize={12} maxSize={40} tags={gameTags} colorOptions={colours} className="tagCloud"/> : null}
+    }
   </section>
  
   <div id="grid-container-2"> 

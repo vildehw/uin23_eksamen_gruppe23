@@ -26,7 +26,7 @@ function App() {
   const [games, setGames] = useState([])
 
   const getGames = async() => {
-    const response = await fetch (`https://api.rawg.io/api/games?key=880241c0a7e24864aef2b9d1687af70d&ordering=-released&dates=2023-01-01,${getDate()}`)
+    const response = await fetch (`https://api.rawg.io/api/games?key=1f72eed5f95849c9ace258ea29ce3390&ordering=-released&dates=2023-01-01,${getDate()}`)
     const data = await response.json()
     setGames(data?.results)
   }
