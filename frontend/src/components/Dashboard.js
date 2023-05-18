@@ -4,7 +4,7 @@ import MyGameCard from "./MyGameCard";
 import { fetchGameCount } from "../sanity/gameServices";
 import { useEffect, useState } from "react";
 
-export default function Dashboard({games, sanitygames, favourites, sanityUser, userFav, userGames, user}) { 
+export default function Dashboard({games, sanitygames, userFav, user}) { 
 
   //kode for å telle antall spill i myGames (groq-count)
   const[sanityCount, setSanityCount] = useState(null) 
